@@ -9,7 +9,7 @@
     "build": "next build",
     "lint": "next lint",
     "predeploy": "next build",
-    "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles"
+    "deploy": "touch out/.nojekyll && gh-pages -d out --dotfiles -m \"Deploy from $(git rev-parse --short HEAD) at $(date +'%Y-%m-%d %H:%M')\""
   },
   "browserslist": {
     "production": [
