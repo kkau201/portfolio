@@ -9,9 +9,12 @@ export interface SocialLink {
   external?: boolean;
 }
 
+export type HobbyMotion = "shutter" | "stir" | "kickflip" | "rep" | "pulse";
+
 export interface Hobby {
   label: string;
   src: string;
+  motion: HobbyMotion;
 }
 
 export interface FeaturedProject {

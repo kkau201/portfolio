@@ -81,11 +81,11 @@ export const about: AboutContent = {
     "NZQA Top Art Exhibition Placing for Design Portfolio",
   ],
   hobbies: [
-    { label: "Design & photography", src: "/img/hobbies/design-photo.svg" },
-    { label: "Baking & cooking", src: "/img/hobbies/baking-cooking.svg" },
-    { label: "Skateboarding", src: "/img/hobbies/skateboarding.svg" },
-    { label: "Strength training", src: "/img/hobbies/strength-training.svg" },
-    { label: "Crosswords & reading", src: "/img/hobbies/crosswords-reading.svg" },
+    { label: "Design & photography", src: "/img/hobbies/design-photo.svg", motion: "shutter" },
+    { label: "Baking & cooking", src: "/img/hobbies/baking-cooking.svg", motion: "stir" },
+    { label: "Strength training", src: "/img/hobbies/strength-training.svg", motion: "rep" },
+    { label: "Skateboarding", src: "/img/hobbies/skateboarding.svg", motion: "kickflip" },
+    { label: "Crosswords & reading", src: "/img/hobbies/crosswords-reading.svg", motion: "pulse" },
   ],
 };
 

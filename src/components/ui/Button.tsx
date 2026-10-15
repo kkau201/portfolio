@@ -1,6 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { Icon } from "@/components/ui/Icon";
+import { RippleLink } from "@/components/ui/RippleLink";
 
 interface ButtonLinkProps {
   href: string;
@@ -9,6 +10,7 @@ interface ButtonLinkProps {
   download?: boolean;
   external?: boolean;
   ariaLabel?: string;
+  ripple?: boolean;
 }
 
 const variants: Record<ButtonLinkProps["variant"], string> = {
@@ -25,6 +27,7 @@ export function ButtonLink({
   download,
   external,
   ariaLabel,
+  ripple = false,
 }: ButtonLinkProps) {
   const className = `${variants[variant]} focus-ring`;
   const extra = external
@@ -32,8 +35,9 @@ export function ButtonLink({
     : {};
 
   if (download || href.startsWith("mailto:") || href.startsWith("http")) {
+    const Anchor = ripple ? RippleLink : "a";
     return (
-      <a
+      <Anchor
         href={href}
         className={className}
         download={download || undefined}
@@ -41,7 +45,7 @@ export function ButtonLink({
         {...extra}
       >
         {children}
-      </a>
+      </Anchor>
     );
   }
 

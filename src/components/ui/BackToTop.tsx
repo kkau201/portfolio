@@ -6,7 +6,7 @@ export function BackToTop() {
   return (
     <a
       href="#top"
-      className="focus-ring inline-flex items-center gap-1 rounded-sm font-extrabold tracking-wide text-tangerine hover:text-blueberry"
+      className="group/arrow focus-ring inline-flex items-center gap-1 rounded-sm font-extrabold tracking-wide text-tangerine hover:text-blueberry"
       aria-label="Back to top"
       onClick={(event) => {
         event.preventDefault();
@@ -14,7 +14,11 @@ export function BackToTop() {
         window.scrollTo({ top: 0, behavior: reduced ? "auto" : "smooth" });
       }}
     >
-      <Icon name="up" className="size-3.5" /> BACK TO TOP
+      <Icon
+        name="up"
+        className="size-3.5 motion-safe:group-hover/arrow:animate-arrow-nudge-up motion-safe:group-focus-visible/arrow:animate-arrow-nudge-up"
+      />{" "}
+      BACK TO TOP
     </a>
   );
 }

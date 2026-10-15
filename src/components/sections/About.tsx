@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { about } from "@/data/portfolioData";
+import { AssetImage } from "@/components/ui/AssetImage";
 import { Icon } from "@/components/ui/Icon";
 
 export function About() {
@@ -29,15 +29,19 @@ export function About() {
           </ul>
 
           <h3 className="section-title mt-12 text-oatmeal">Hobbies</h3>
-          <ul className="mt-5 grid w-full min-w-0 grid-cols-5 items-center gap-2 sm:gap-3">
+          <ul className="hobby-row mt-5 grid w-full min-w-0 grid-cols-5 items-center gap-2 sm:gap-3">
             {about.hobbies.map((hobby) => (
-              <li key={hobby.label} title={hobby.label} className="min-w-0">
-                <Image
+              <li
+                key={hobby.label}
+                title={hobby.label}
+                className={`hobby hobby--${hobby.motion} min-w-0`}
+              >
+                <AssetImage
                   src={hobby.src}
                   alt={hobby.label}
                   width={160}
                   height={160}
-                  className="block h-auto w-full min-w-0 max-w-full object-contain"
+                  className="hobby-icon block h-auto w-full min-w-0 max-w-full object-contain"
                 />
               </li>
             ))}

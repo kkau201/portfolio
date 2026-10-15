@@ -2,6 +2,7 @@ import { contact } from "@/data/portfolioData";
 import { withBasePath } from "@/lib/paths";
 import { ButtonLink } from "@/components/ui/Button";
 import { Icon } from "@/components/ui/Icon";
+import { RippleLink } from "@/components/ui/RippleLink";
 
 export function Contact() {
   return (
@@ -23,6 +24,7 @@ export function Contact() {
             href={withBasePath(contact.cvHref)}
             variant="pill"
             download
+            ripple
             ariaLabel="Download CV"
           >
             <Icon name="down" className="size-4" />
@@ -31,16 +33,16 @@ export function Contact() {
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs font-extrabold tracking-[0.16em] text-blueberry">
           {contact.social.map((link) => (
-            <a
+            <RippleLink
               key={link.label}
               href={link.href}
-              className="focus-ring inline-flex items-center gap-1 rounded-sm hover:text-tangerine"
+              className="focus-ring inline-flex items-center gap-1 rounded-sm px-1.5 py-1 hover:text-tangerine"
               target={link.external ? "_blank" : undefined}
               rel={link.external ? "noreferrer" : undefined}
               aria-label={link.label}
             >
               {link.label} <Icon name="open" className="size-3.5" />
-            </a>
+            </RippleLink>
           ))}
         </div>
       </div>

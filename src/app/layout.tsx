@@ -5,6 +5,7 @@ import { HashScroll } from "@/components/HashScroll";
 import { Footer } from "@/components/sections/Footer";
 import { Header } from "@/components/sections/Header";
 import { siteMeta } from "@/data/portfolioData";
+import { withBasePath } from "@/lib/paths";
 import "./globals.css";
 
 const beVietnam = Be_Vietnam_Pro({
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
   title: siteMeta.title,
   description: siteMeta.description,
   icons: {
-    icon: "/img/avatar.svg",
+    icon: withBasePath("/img/avatar.svg"),
   },
 };
 

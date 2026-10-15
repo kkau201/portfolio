@@ -29,9 +29,9 @@ export function Experience() {
           </div>
           {experience.map((role) => (
             <article key={role.title} className="relative">
-              <span className="absolute -left-6 top-0 z-[1] h-3 w-3 rounded-full border-2 border-guava bg-tangerine md:-left-8" />
-              <div className="rounded-[22px] border-2 border-guava/80 px-6 py-6 text-left md:px-8">
-                <p className="inline-flex rounded-full border border-guava/80 px-3 py-1 text-[11px] font-bold tracking-wide">
+              <span className="absolute -left-6 top-0 z-[1] h-3 w-3 rounded-full border-2 border-oatmeal bg-tangerine md:-left-8" />
+              <div className="rounded-[22px] border-2 border-oatmeal/80 px-6 py-6 text-left md:px-8">
+                <p className="inline-flex rounded-full border border-oatmeal/80 px-3 py-1 text-[11px] font-bold tracking-wide">
                   {role.company}
                 </p>
                 <h3 className="mt-4 font-display text-[28px] font-normal leading-tight md:text-[32px]">

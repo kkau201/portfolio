@@ -3,9 +3,22 @@
 import Link from "next/link";
 import { useEffect, useId, useState } from "react";
 import { navLinks, siteMeta } from "@/data/portfolioData";
+import { withBasePath } from "@/lib/paths";
 
 const linkClass =
   "focus-ring rounded-sm text-[15px] font-extrabold text-tangerine hover:opacity-80";
+
+function scrollToSection(href: string): boolean {
+  const id = href.split("#")[1];
+  if (!id) return false;
+  const section = document.getElementById(id);
+  if (!section) return false;
+  section.scrollIntoView({ behavior: "smooth" });
+  if (window.location.hash !== `#${id}`) {
+    window.history.pushState(null, "", `#${id}`);
+  }
+  return true;
+}
 
 export function Header() {
   const [open, setOpen] = useState(false);
@@ -30,7 +43,7 @@ export function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-20 bg-oatmeal/95 backdrop-blur-sm">
+    <header id="site-header" className="sticky top-0 z-20 bg-oatmeal/95 backdrop-blur-sm">
       <div className="page-wrap flex items-center justify-between py-6">
         <Link
           href="/"
@@ -42,9 +55,18 @@ export function Header() {
 
         <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
-            <Link key={link.label} href={link.href} className={linkClass}>
+            <a
+              key={link.label}
+              href={withBasePath(link.href)}
+              className={linkClass}
+              onClick={(event) => {
+                if (scrollToSection(link.href)) {
+                  event.preventDefault();
+                }
+              }}
+            >
               {link.label}
-            </Link>
+            </a>
           ))}
         </nav>
 
@@ -74,14 +96,19 @@ export function Header() {
         className={`${open ? "flex" : "hidden"} page-wrap flex-col gap-4 pb-6 md:hidden`}
       >
         {navLinks.map((link) => (
-          <Link
+          <a
             key={link.label}
-            href={link.href}
+            href={withBasePath(link.href)}
             className={linkClass}
-            onClick={() => setOpen(false)}
+            onClick={(event) => {
+              setOpen(false);
+              if (scrollToSection(link.href)) {
+                event.preventDefault();
+              }
+            }}
           >
             {link.label}
-          </Link>
+          </a>
         ))}
       </nav>
     </header>

@@ -15,12 +15,15 @@ export function HashScroll() {
         });
         return;
       }
-      window.scrollTo({ top: 0, behavior: "smooth" });
     };
 
     scrollToHash();
     window.addEventListener("hashchange", scrollToHash);
-    return () => window.removeEventListener("hashchange", scrollToHash);
+    window.addEventListener("popstate", scrollToHash);
+    return () => {
+      window.removeEventListener("hashchange", scrollToHash);
+      window.removeEventListener("popstate", scrollToHash);
+    };
   }, [pathname]);
 
   return null;

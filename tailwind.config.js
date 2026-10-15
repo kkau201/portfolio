@@ -21,6 +21,20 @@ module.exports = {
       boxShadow: {
         card: "0 8px 24px rgba(70, 90, 225, 0.08)",
       },
+      keyframes: {
+        "arrow-nudge": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(8px)" },
+        },
+        "arrow-nudge-up": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+      },
+      animation: {
+        "arrow-nudge": "arrow-nudge 0.7s ease-in-out infinite",
+        "arrow-nudge-up": "arrow-nudge-up 0.7s ease-in-out infinite",
+      },
     },
   },
   plugins: [],
