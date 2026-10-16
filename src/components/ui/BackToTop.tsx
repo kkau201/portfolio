@@ -6,7 +6,7 @@ export function BackToTop() {
   return (
     <a
       href="#top"
-      className="group/arrow focus-ring inline-flex items-center gap-1 rounded-sm font-extrabold tracking-wide text-tangerine hover:text-blueberry"
+      className="group/arrow focus-ring inline-flex items-center gap-1 rounded-sm font-medium tracking-wide text-tangerine hover:text-blueberry"
       aria-label="Back to top"
       onClick={(event) => {
         event.preventDefault();
