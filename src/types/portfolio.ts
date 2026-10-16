@@ -42,6 +42,13 @@ export interface Role {
   tags: string[];
 }
 
+export interface Education {
+  dates: string;
+  title: string;
+  institution: string;
+  highlights: string[];
+}
+
 export interface HeroBadge {
   file: string;
   alt: string;
@@ -67,6 +74,7 @@ export interface HeroContent {
 
 export interface AboutContent {
   paragraphs: string[];
+  education: Education[];
   awards: string[];
   hobbies: Hobby[];
 }

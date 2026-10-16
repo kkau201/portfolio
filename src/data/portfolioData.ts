@@ -70,9 +70,19 @@ export const hero: HeroContent = {
 
 export const about: AboutContent = {
   paragraphs: [
-    "I was born and raised in Aotearoa (New Zealand). My interest in computers started when my dad enrolled me in a laptop class in intermediate, sparking a passion that shaped my career path. In high school, I began coding websites using HTML, CSS, and JavaScript, sharpening my ability to blend design with development.",
-    "To deepen my knowledge, I pursued a Software Engineering degree at the University of Auckland, where I spent five years honing my skills. I explored various programming languages such as Java, C#, Python and took courses in algorithms, testing, databases, and project management.",
-    "After graduating, I worked at a digital agency for over three years becoming an Intermediate Android Developer. This gave me the opportunity to apply my skills across a variety of client projects and fulfilled my desire to contribute to products that benefit a wide range of New Zealanders, aligning with my goal of building meaningful and impactful software.",
+    "Born and raised in Aotearoa (New Zealand), my tech journey began when my dad enrolled me in an intermediate school laptop class. That early spark led to coding websites in high school, where I discovered a passion for blending design with development.",
+    "After earning my Software Engineering degree from the University of Auckland, my primary goal was to build products that tangibly improved the lives of everyday New Zealanders. I spent over three years achieving exactly that as an Intermediate Android Developer at Alphero. Having successfully made that local impact, I am now eager to scale my ambitions overseas and build meaningful software for a global audience.",
+  ],
+  education: [
+    {
+      dates: "Jan 2018 – Nov 2022",
+      title: "Bachelor of Engineering (Honours)",
+      institution: "University of Auckland | Auckland, NZ",
+      highlights: [
+        "Specialisation: Software Engineering",
+        "Covered software architecture, system performance, testing and quality assurance, requirements engineering, human-computer interaction, and documentation",
+      ],
+    },
   ],
   awards: [
     "UoA Final Year Project Machine Learning / AI Winner",

@@ -10,8 +10,8 @@ interface FeaturedProjectCardProps {
 
 export function FeaturedProjectCard({ project, href }: FeaturedProjectCardProps) {
   return (
-    <article className="project-card rounded-[28px] bg-lime p-[5px] text-left">
-      <div className="grid gap-6 rounded-[23px] bg-oatmeal p-5 sm:p-6 md:grid-cols-2 md:items-stretch md:gap-8 md:p-7">
+    <article className="project-card rounded-[28px] border-lime border-4 text-left">
+      <div className="grid gap-6 rounded-[23px] p-5 sm:p-6 md:grid-cols-2 md:items-stretch md:gap-8 md:p-7">
         <div className="project-card-media h-[240px] overflow-hidden rounded-[18px] md:h-full md:min-h-[380px]">
           <AssetImage
             src={project.img}
