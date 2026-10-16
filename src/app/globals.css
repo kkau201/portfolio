@@ -28,10 +28,6 @@ body {
     @apply font-display text-[32px] font-normal leading-tight tracking-tight md:text-[40px];
   }
 
-  .tag {
-    @apply inline-flex items-center rounded-md bg-lime px-2.5 py-1 text-[11px] font-extrabold uppercase tracking-wide text-blueberry;
-  }
-
   .text-link {
     @apply inline-flex items-center gap-1 text-sm font-medium text-tangerine hover:underline;
   }

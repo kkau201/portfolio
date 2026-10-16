@@ -1,5 +1,6 @@
 import type { FeaturedProject } from "@/types/portfolio";
 import { AssetImage } from "@/components/ui/AssetImage";
+import { Tag } from "@/components/ui/Tag";
 import { ViewLink } from "@/components/ui/Button";
 
 interface FeaturedProjectCardProps {
@@ -32,12 +33,7 @@ export function FeaturedProjectCard({ project, href }: FeaturedProjectCardProps)
           {project.tags.length > 0 ? (
             <div className="mt-6 flex flex-wrap gap-2 md:mt-auto md:pt-8">
               {project.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="inline-flex items-center rounded-md bg-lime px-3 py-1.5 text-[13px] font-normal text-blueberry"
-                >
-                  {tag}
-                </span>
+                <Tag key={tag}>{tag}</Tag>
               ))}
             </div>
           ) : null}
