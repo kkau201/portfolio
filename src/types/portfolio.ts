@@ -35,6 +35,7 @@ export interface ArchiveProject {
 }
 
 export interface Role {
+  dates: string;
   company: string;
   title: string;
   desc: string;

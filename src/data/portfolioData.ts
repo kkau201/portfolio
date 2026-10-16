@@ -143,12 +143,14 @@ export const archiveProjects: ArchiveProject[] = [
 
 export const experience: Role[] = [
   {
+    dates: "Jan 2023 - Apr 2026",
     company: "Alphero Ltd.  |  Wellington, NZ",
     title: "Intermediate Android Developer",
     desc: "Developed and maintained native Android applications focusing on delivering polished UI/UX and robust functionality. Collaborated cross-functionally to ensure high-quality software delivery over short release schedules.",
-    tags: ["Android", "Kotlin", "Jetpack Compose", "KMP"],
+    tags: ["Android", "Kotlin", "Java", "Jetpack Compose", "KMP", "Firebase", "GraphQL", "RESTFUL API"],
   },
   {
+    dates: "Nov 2021 - Feb 2022",
     company: "Bank of New Zealand  |  Wellington, NZ (Remote)",
     title: "Full-stack Intern",
     desc: "Built customer-facing items in the lending funnel for credit card and personal loan applications. Refactored APIs for performance and maintainability, and facilitated a team retrospective in agile workflow.",
