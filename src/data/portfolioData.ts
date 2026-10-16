@@ -47,7 +47,7 @@ export const hero: HeroContent = {
   name: "Kayla Kautai",
   role: "Software Engineer",
   paragraphs: [
-    "Software Engineer specialising in Android development with 3+ years of commercial experience building native Kotlin apps with Jetpack Compose and MVVM architecture for media streaming, healthcare, government and utility clients, reaching 2M+ downloads.",
+    "With 3+ years of commercial experience building native Android apps with Jetpack Compose and MVVM architecture for media streaming, healthcare, government and utility clients, reaching 2M+ downloads.",
     "Currently on sabbatical and enthusiastic to find my next Android role. Available to start immediately, and open to relocating.",
   ],
   avatar: {
@@ -91,14 +91,14 @@ export const about: AboutContent = {
 
 export const featuredProjects: FeaturedProject[] = [
   {
-    kicker: "Honours Research · Cross-platform Mobile App",
+    kicker: "Mobile cross-platform",
     title: "Pūioio",
     img: "/img/puioio.png",
     desc: "A cutting-edge real-time smartphone-based exercise repetition counting system. Engineered utilising on-device sensor data processing, Pūioio empowers users to accurately track physical performance without reliance on external wearables.",
-    tags: ["Flutter", "Machine Learning", "Pose Detection"],
+    tags: ["Flutter", "Machine Learning", "Honours Research"],
   },
   {
-    kicker: "Native Android App",
+    kicker: "Native Android",
     title: "Pīkau",
     img: "/img/pikau.png",
     desc: "Currently building Pīkau, a Kotlin and Jetpack Compose tramping companion app, to keep my Android skills sharp while on a career sabbatical.",
@@ -108,70 +108,36 @@ export const featuredProjects: FeaturedProject[] = [
 
 export const archiveProjects: ArchiveProject[] = [
   {
+    kicker: "Mobile cross-platform",
     title: "Pūioio",
     img: "/img/puioio.png",
     year: "2022",
     desc: "With the ubiquity of mobile phones and the benefits of tracking physical activity, our final year research explored the feasibility of counting exercise repetitions in real-time, using only on-device inference, on flagship smartphones. As a result, we developed Pūioio, a cross-platform mobile application designed to track repetitions using our proposed pipeline for three standard exercises: Squats, Push-ups, and Pull-ups. Overall, Pūioio attained an accuracy of 98.8% in real-world testing and my partner and I won 1st in our category for the top 'AI & Machine Learning' project.",
+    tags: ["Flutter", "Machine Learning", "Honours Research"],
   },
   {
+    kicker: "Native Android",
     title: "Pīkau",
     img: "/img/pikau.png",
     year: "2026",
     desc: "Currently building Pīkau, a Kotlin and Jetpack Compose tramping companion app, to keep my Android skills sharp while on a career sabbatical.",
+    tags: ["Kotlin", "Jetpack Compose", "MVVM"],
   },
   {
-    title: "Quinzical | Java GUI Application",
-    img: "/img/quinzical.png",
-    year: "2020",
-    desc: "The Quinzical application is a quiz game that aims to teach children more about New Zealand. A cooperative effort to develop Quinzical with my partner, Wayne, took place over two weeks. We chose the target audience of children aged 8-12 in order to teach the next generation about their beautiful and fascinating country. Furthermore, the application would require fun and colourful GUI design.",
-  },
-  {
-    title: "Motukā | Android Mobile Application (Java)",
-    img: "/img/motukaa.png",
-    year: "2021",
-    desc: "Our final Android application, Motukā, helps users browse information about different vehicles. The app was developed to meet the specifications given for a university paper as a competition. This involved developing an android app that can be used to showcase or sell items. More importantly, the team properly applied and realised SOLID principles during the period of this project.",
-  },
-  {
+    kicker: "Web application",
     title: "The Missed | Web Application Curriculum Resource",
     img: "/img/missed.png",
     year: "2017",
-    desc: "A web application created as a digital curriculum resource for Year 7-10 students. Includes one-click-translation from English to Maori. Awarded with the amazing opportunity to attend the 100th Anniversary of the Battle of Passchendaele in Belgium by the Ministry of Education. Used technologies: HTML, CSS, jQuery and Adobe Photoshop",
+    desc: "A web application created as a digital curriculum resource for Year 7-10 students. Includes one-click-translation from English to Māori. Awarded with the amazing opportunity to attend the 100th Anniversary of the Battle of Passchendaele in Belgium by the Ministry of Education. Used technologies: HTML, CSS, jQuery and Adobe Photoshop.",
+    tags: ["HTML", "CSS", "jQuery"],
   },
   {
-    title: "Homey | Mobile Application Prototype",
-    img: "/img/homey.png",
-    year: "2020",
-    desc: "A flatting workflow management app that promotes an organized and efficient living environment with roommates. It includes gamification as its main feature. This concept was a semi-finalist in the ON:Pitch competition.",
-  },
-  {
+    kicker: "Design portfolio",
     title: "Mauao Collective | NZQA Level 3 Design Portfolio",
     img: "/img/mauao.png",
     year: "2016",
-    desc: "A systematic body of work designed for an art collective consisting of a range of mediums, from logos and invitations to posters and a zine. Integrates conventions and regenerates ideas within design practice. My year-long portfolio was top 12 in NCEA Design Level 3, placing it in the NZQA Top Art Exhibition touring the country.",
-  },
-  {
-    title: "Stroke Rehabilitation | Mobile Application Prototype",
-    img: "/img/stroke.png",
-    year: "2018",
-    desc: "This app has been designed to aid stroke patients who experience difficulties with communication. The UI/UX was completed on Adobe XD.",
-  },
-  {
-    title: "The Pink Room | e-Commerce Web Application",
-    img: "/img/pinkroom.JPG",
-    year: "2016",
-    desc: "The Pink Room is a web application for a independent clothing outlet. It aims to help promote their clothing lines to potential and existing customers. It integrates a database to keep track of items, quantities, price etc.",
-  },
-  {
-    title: "RGHS Te Mātārere | School Bulletin",
-    img: "/img/bulletin.png",
-    year: "2017",
-    desc: "Took the initiative to revamp the my high school bulletin. As a co-designer, we developed each bulletin in Adobe Photoshop where 10 issues were released over the course of the year.",
-  },
-  {
-    title: "Biopad | e-Commerce Website",
-    img: "/img/digichem.png",
-    year: "2016",
-    desc: "An e-Commerce web application intended for selling biodegradable packaging for sanitary products.",
+    desc: "A systematic body of work designed for an art collective consisting of a range of mediums, from logos and invitations to posters and a zine. My year-long portfolio was selected as top 12 nationally in NCEA Design Level 3, placing it in the NZQA Top Art Exhibition touring the country.",
+    tags: ["Branding", "Print", "NCEA Design"],
   },
 ];
 
@@ -179,7 +145,7 @@ export const experience: Role[] = [
   {
     company: "Alphero Ltd.  |  Wellington, NZ",
     title: "Intermediate Android Developer",
-    desc: "Developed and maintained native Android applications focusing on delivering polished UX/UI and robust functionality. Collaborated cross-functionally to ensure high-quality software delivery over short release schedules.",
+    desc: "Developed and maintained native Android applications focusing on delivering polished UI/UX and robust functionality. Collaborated cross-functionally to ensure high-quality software delivery over short release schedules.",
     tags: ["Android", "Kotlin", "Jetpack Compose", "KMP"],
   },
   {

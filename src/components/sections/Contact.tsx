@@ -1,6 +1,5 @@
 import { contact } from "@/data/portfolioData";
-import { withBasePath } from "@/lib/paths";
-import { ButtonLink } from "@/components/ui/Button";
+import { DownloadCvButton } from "@/components/ui/DownloadCvButton";
 import { Icon } from "@/components/ui/Icon";
 import { RippleLink } from "@/components/ui/RippleLink";
 
@@ -20,16 +19,7 @@ export function Contact() {
         </h2>
         <p className="mx-auto mt-3 max-w-md text-[15px] leading-6">{contact.body}</p>
         <div className="mt-6">
-          <ButtonLink
-            href={withBasePath(contact.cvHref)}
-            variant="pill"
-            download
-            ripple
-            ariaLabel="Download CV"
-          >
-            <Icon name="down" className="size-4" />
-            {contact.cvLabel}
-          </ButtonLink>
+          <DownloadCvButton />
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs font-extrabold tracking-[0.16em] text-blueberry">
           {contact.social.map((link) => (

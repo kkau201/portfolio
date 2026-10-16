@@ -6,7 +6,7 @@ import { navLinks, siteMeta } from "@/data/portfolioData";
 import { withBasePath } from "@/lib/paths";
 
 const linkClass =
-  "focus-ring rounded-sm text-[15px] font-extrabold text-tangerine hover:opacity-80";
+  "focus-ring rounded-sm text-[15px] font-normal text-tangerine hover:opacity-80";
 
 function scrollToSection(href: string): boolean {
   const id = href.split("#")[1];

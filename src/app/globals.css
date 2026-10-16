@@ -33,7 +33,7 @@ body {
   }
 
   .text-link {
-    @apply inline-flex items-center gap-1 text-sm font-extrabold text-tangerine hover:underline;
+    @apply inline-flex items-center gap-1 text-sm font-medium text-tangerine hover:underline;
   }
 
   .focus-ring {
@@ -119,9 +119,10 @@ body {
 .hero-badge-drag {
   pointer-events: auto;
   cursor: grab;
-  touch-action: none;
+  touch-action: pan-y !important;
   user-select: none;
   -webkit-user-select: none;
+  -webkit-touch-callout: none;
 }
 
 .hero-badge-drag:active,
@@ -130,14 +131,16 @@ body {
 }
 
 .hero-badge-drag.is-dragging {
+  touch-action: none !important;
   filter: drop-shadow(10px 22px 18px rgba(40, 28, 50, 0.42));
 }
 
 .hero-badge-float {
   pointer-events: auto;
+  height: 100%;
+  width: 100%;
   animation: hero-badge-float var(--float-dur, 18s) ease-in-out infinite;
   animation-delay: var(--float-delay, 0s);
-  perspective: 420px;
 }
 
 .hero-badge-float.is-rested {
@@ -155,7 +158,6 @@ body {
   width: 100%;
   pointer-events: auto;
   transform-origin: var(--peel-origin-x, 82%) var(--peel-origin-y, 88%);
-  transform-style: preserve-3d;
   transition:
     transform 280ms cubic-bezier(0.22, 1.45, 0.36, 1),
     filter 280ms ease;
@@ -170,7 +172,7 @@ body {
 
 .hero-sticker-face {
   position: relative;
-  isolation: isolate;
+  display: block;
   height: 100%;
   width: 100%;
   -webkit-mask-image: var(--badge-mask);
@@ -202,6 +204,14 @@ body {
 }
 
 @media (hover: hover) and (pointer: fine) {
+  .hero-badge-float {
+    perspective: 420px;
+  }
+
+  .hero-sticker {
+    transform-style: preserve-3d;
+  }
+
   .hero-badge-float:not(.is-rested) .hero-sticker:hover {
     z-index: 8;
     transform: rotate(var(--peel-rot, -7deg)) rotateX(var(--peel-rx, 14deg))
@@ -272,10 +282,28 @@ body {
 
 .hobby {
   perspective: 520px;
+  -webkit-tap-highlight-color: transparent;
 }
 
 .hobby--kickflip {
   perspective: 240px;
+  --hobby-anim: hobby-kickflip 0.85s cubic-bezier(0.45, 0.05, 0.2, 1);
+}
+
+.hobby--stir {
+  --hobby-anim: hobby-stir 0.55s ease-in-out;
+}
+
+.hobby--shutter {
+  --hobby-anim: hobby-shutter 0.48s ease-out;
+}
+
+.hobby--rep {
+  --hobby-anim: hobby-rep 0.58s ease-in-out;
+}
+
+.hobby--pulse {
+  --hobby-anim: hobby-pulse 0.7s ease-in-out;
 }
 
 .hobby-icon {
@@ -285,25 +313,13 @@ body {
   will-change: transform, filter;
 }
 
+.hobby.is-playing .hobby-icon {
+  animation: var(--hobby-anim);
+}
+
 @media (hover: hover) and (pointer: fine) {
-  .hobby--kickflip:hover .hobby-icon {
-    animation: hobby-kickflip 0.85s cubic-bezier(0.45, 0.05, 0.2, 1);
-  }
-
-  .hobby--stir:hover .hobby-icon {
-    animation: hobby-stir 0.55s ease-in-out;
-  }
-
-  .hobby--shutter:hover .hobby-icon {
-    animation: hobby-shutter 0.48s ease-out;
-  }
-
-  .hobby--rep:hover .hobby-icon {
-    animation: hobby-rep 0.58s ease-in-out;
-  }
-
-  .hobby--pulse:hover .hobby-icon {
-    animation: hobby-pulse 0.7s ease-in-out;
+  .hobby:hover .hobby-icon {
+    animation: var(--hobby-anim);
   }
 }
 
@@ -386,6 +402,79 @@ body {
   }
 }
 
+.cv-liquid-btn {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cv-liquid-fill {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
+  height: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background: #465ae1;
+}
+
+.cv-liquid-btn.is-filling .cv-liquid-fill {
+  animation: cv-liquid-rise 1.18s cubic-bezier(0.22, 1.35, 0.36, 1) forwards;
+}
+
+.cv-liquid-wave {
+  position: absolute;
+  top: -8px;
+  left: 0;
+  width: 200%;
+  height: 16px;
+  fill: #465ae1;
+  animation: cv-wave-drift 0.9s linear infinite;
+}
+
+.cv-liquid-wave--back {
+  top: -11px;
+  fill: #6f7ef0;
+  opacity: 0.9;
+  animation-duration: 1.35s;
+  animation-direction: reverse;
+}
+
+.cv-liquid-label {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@keyframes cv-liquid-rise {
+  0% {
+    height: 0%;
+  }
+  58% {
+    height: 76%;
+  }
+  80% {
+    height: 108%;
+  }
+  100% {
+    height: 100%;
+  }
+}
+
+@keyframes cv-wave-drift {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .ink-ripple {
     animation: none;
@@ -400,7 +489,8 @@ body {
     transform: none;
   }
 
-  .hobby:hover .hobby-icon {
+  .hobby:hover .hobby-icon,
+  .hobby.is-playing .hobby-icon {
     animation: none;
   }
 
@@ -423,6 +513,12 @@ body {
   }
 
   .hero-sticker:hover .hero-sticker-face::after {
+    animation: none;
+  }
+
+  .cv-liquid-btn.is-filling .cv-liquid-fill,
+  .cv-liquid-wave,
+  .cv-liquid-wave--back {
     animation: none;
   }
 }

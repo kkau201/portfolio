@@ -26,10 +26,12 @@ export interface FeaturedProject {
 }
 
 export interface ArchiveProject {
+  kicker: string;
   title: string;
   img: string;
   year: string;
   desc: string;
+  tags: string[];
 }
 
 export interface Role {

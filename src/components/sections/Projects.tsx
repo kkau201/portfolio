@@ -15,7 +15,7 @@ export function Projects() {
       </h2>
       <div className="mt-8 space-y-8">
         {featuredProjects.map((project) => (
-          <FeaturedProjectCard key={project.title} project={project} />
+          <FeaturedProjectCard key={project.title} project={project} href="/projects" />
         ))}
       </div>
       <div className="mt-10 flex justify-center">

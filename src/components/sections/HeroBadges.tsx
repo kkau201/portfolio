@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState, type RefObject } from "react";
+import { useEffect, useLayoutEffect, useRef, useState, type RefObject } from "react";
 import { animate, motion, useMotionValue, useReducedMotion } from "framer-motion";
 import { hero } from "@/data/portfolioData";
 import { AssetImage } from "@/components/ui/AssetImage";
@@ -43,22 +43,29 @@ interface DraggableBadgeProps {
   index: number;
   constraintsRef: RefObject<HTMLElement | null>;
   resetId: number;
+  stageSize: number;
 }
 
 function useHeroDragBounds(
   sectionRef: RefObject<HTMLElement | null>,
   layoutRef: RefObject<HTMLElement | null>,
 ) {
-  const [bounds, setBounds] = useState({ left: 0, right: 0, top: 0, bottom: 0 });
+  const [bounds, setBounds] = useState<{
+    left: number;
+    right: number;
+    top: number;
+    bottom: number;
+  } | false>(false);
 
   useEffect(() => {
+    const layout = layoutRef.current;
     const update = () => {
       const section = sectionRef.current;
-      const layout = layoutRef.current;
-      if (!section || !layout) return;
+      const node = layoutRef.current;
+      if (!section || !node) return;
 
       const sectionBox = section.getBoundingClientRect();
-      const layoutBox = layout.getBoundingClientRect();
+      const layoutBox = node.getBoundingClientRect();
       const header = document.getElementById("site-header");
       const headerBottom = header?.getBoundingClientRect().bottom ?? sectionBox.top;
       const topEdge = Math.max(sectionBox.top, headerBottom);
@@ -72,18 +79,52 @@ function useHeroDragBounds(
     };
 
     update();
+    const observer = layout ? new ResizeObserver(update) : null;
+    if (layout) {
+      observer?.observe(layout);
+    }
     window.addEventListener("resize", update);
     window.addEventListener("scroll", update, { passive: true });
     return () => {
+      observer?.disconnect();
       window.removeEventListener("resize", update);
       window.removeEventListener("scroll", update);
     };
-  }, [sectionRef]);
+  }, [sectionRef, layoutRef]);
 
   return bounds;
 }
 
-function DraggableBadge({ badge, index, constraintsRef, resetId }: DraggableBadgeProps) {
+function useElementSize(ref: RefObject<HTMLElement | null>) {
+  const [size, setSize] = useState(0);
+
+  useLayoutEffect(() => {
+    const node = ref.current;
+    if (!node) {
+      return;
+    }
+
+    const measure = () => {
+      const box = node.getBoundingClientRect();
+      setSize(Math.round(Math.min(box.width, box.height)));
+    };
+
+    measure();
+    const observer = new ResizeObserver(measure);
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [ref]);
+
+  return size;
+}
+
+function DraggableBadge({
+  badge,
+  index,
+  constraintsRef,
+  resetId,
+  stageSize,
+}: DraggableBadgeProps) {
   const reduceMotion = useReducedMotion();
   const layoutRef = useRef<HTMLDivElement>(null);
   const dragBounds = useHeroDragBounds(constraintsRef, layoutRef);
@@ -106,14 +147,17 @@ function DraggableBadge({ badge, index, constraintsRef, resetId }: DraggableBadg
     animate(y, 0, snap);
   }, [resetId, reduceMotion, x, y]);
 
+  const box = stageSize > 0 ? (stageSize * badge.w) / 100 : 0;
+
   return (
     <div
       ref={layoutRef}
-      className="pointer-events-none absolute aspect-square"
+      className="pointer-events-none absolute"
       style={{
-        left: `calc(${badge.x}% - ${badge.w / 2}%)`,
-        top: `calc(${badge.y}% - ${badge.w / 2}%)`,
-        width: `${badge.w}%`,
+        left: stageSize > 0 ? (stageSize * badge.x) / 100 - box / 2 : `calc(${badge.x}% - ${badge.w / 2}%)`,
+        top: stageSize > 0 ? (stageSize * badge.y) / 100 - box / 2 : `calc(${badge.y}% - ${badge.w / 2}%)`,
+        width: stageSize > 0 ? box : `${badge.w}%`,
+        height: stageSize > 0 ? box : `${badge.w}%`,
         zIndex: dragging ? 18 : rested ? 16 : 2,
       }}
     >
@@ -165,9 +209,9 @@ function DraggableBadge({ badge, index, constraintsRef, resetId }: DraggableBadg
               alt=""
               aria-hidden="true"
               draggable={false}
-              fill
-              sizes="20vw"
-              className="pointer-events-none max-w-none object-contain"
+              width={160}
+              height={160}
+              className="pointer-events-none block h-full w-full max-w-none object-contain"
             />
           </div>
         </div>
@@ -180,12 +224,15 @@ function DraggableBadge({ badge, index, constraintsRef, resetId }: DraggableBadg
 export function HeroBadges({ constraintsRef }: HeroBadgesProps) {
   const { badges, avatar } = hero;
   const [resetId, setResetId] = useState(0);
+  const stageRef = useRef<HTMLDivElement>(null);
+  const stageSize = useElementSize(stageRef);
 
   return (
     <div
       className="relative mx-auto aspect-square w-full max-w-[540px] overflow-visible md:translate-x-4"
       aria-label="Kayla illustrated with skill stickers"
     >
+      <div ref={stageRef} className="absolute inset-[7%] overflow-visible sm:inset-0">
       {badges.map((badge, index) => (
         <DraggableBadge
           key={badge.alt}
@@ -193,11 +240,12 @@ export function HeroBadges({ constraintsRef }: HeroBadgesProps) {
           index={index}
           constraintsRef={constraintsRef}
           resetId={resetId}
+          stageSize={stageSize}
         />
       ))}
       <button
         type="button"
-        className="focus-ring absolute left-1/2 top-[48%] z-[17] w-[52%] -translate-x-1/2 -translate-y-1/2 cursor-pointer rounded-full"
+        className="focus-ring absolute left-1/2 top-[48%] z-[17] aspect-square w-[52%] -translate-x-1/2 -translate-y-1/2 cursor-pointer overflow-visible rounded-full border-0 bg-transparent p-0"
         aria-label="Reset skill stickers"
         onClick={() => setResetId((count) => count + 1)}
       >
@@ -211,6 +259,7 @@ export function HeroBadges({ constraintsRef }: HeroBadgesProps) {
           priority
         />
       </button>
+      </div>
     </div>
   );
 }

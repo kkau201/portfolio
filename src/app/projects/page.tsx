@@ -1,5 +1,5 @@
 import { archiveProjects } from "@/data/portfolioData";
-import { ProjectCard } from "@/components/ui/ProjectCard";
+import { FeaturedProjectCard } from "@/components/ui/FeaturedProjectCard";
 
 export default function ProjectsPage() {
   return (
@@ -7,7 +7,7 @@ export default function ProjectsPage() {
       <h1 className="section-title text-tangerine">Projects</h1>
       <div className="mt-8 space-y-8">
         {archiveProjects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
+          <FeaturedProjectCard key={project.title} project={project} />
         ))}
       </div>
     </main>
