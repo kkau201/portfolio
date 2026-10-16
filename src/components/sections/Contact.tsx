@@ -17,8 +17,8 @@ export function Contact() {
         >
           {contact.heading}
         </h2>
-        <p className="mx-auto mt-3 max-w-md text-[15px] leading-6">{contact.body}</p>
-        <div className="mt-6">
+        <p className="mx-auto mt-3 max-w-lg text-[15px] leading-6">{contact.body}</p>
+        <div className="mt-8">
           <DownloadCvButton />
         </div>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-6 text-xs font-extrabold tracking-[0.16em] text-blueberry">
