@@ -26,13 +26,19 @@ function peelStyle(x: number, y: number, index: number) {
   };
 }
 
-const dragSpring = { type: "spring" as const, stiffness: 300, damping: 20 };
+function useDesktopDrag() {
+  const [canDrag, setCanDrag] = useState(true);
 
-const whileDragMotion = {
-  scale: 1.15,
-  rotate: 6,
-  cursor: "grabbing",
-};
+  useEffect(() => {
+    const touchOnly = window.matchMedia("(hover: none) and (pointer: coarse)");
+    const update = () => setCanDrag(!touchOnly.matches);
+    update();
+    touchOnly.addEventListener("change", update);
+    return () => touchOnly.removeEventListener("change", update);
+  }, []);
+
+  return canDrag;
+}
 
 interface HeroBadgesProps {
   constraintsRef: RefObject<HTMLElement | null>;
@@ -44,6 +50,7 @@ interface DraggableBadgeProps {
   constraintsRef: RefObject<HTMLElement | null>;
   resetId: number;
   stageSize: number;
+  canDrag: boolean;
 }
 
 function useHeroDragBounds(
@@ -70,12 +77,19 @@ function useHeroDragBounds(
       const headerBottom = header?.getBoundingClientRect().bottom ?? sectionBox.top;
       const topEdge = Math.max(sectionBox.top, headerBottom);
 
-      setBounds({
+      const next = {
         left: sectionBox.left - layoutBox.left,
         right: sectionBox.right - layoutBox.right,
         top: topEdge - layoutBox.top,
         bottom: sectionBox.bottom - layoutBox.bottom,
-      });
+      };
+
+      if (next.left > next.right || next.top > next.bottom) {
+        setBounds(false);
+        return;
+      }
+
+      setBounds(next);
     };
 
     update();
@@ -124,6 +138,7 @@ function DraggableBadge({
   constraintsRef,
   resetId,
   stageSize,
+  canDrag,
 }: DraggableBadgeProps) {
   const reduceMotion = useReducedMotion();
   const layoutRef = useRef<HTMLDivElement>(null);
@@ -158,23 +173,19 @@ function DraggableBadge({
         top: stageSize > 0 ? (stageSize * badge.y) / 100 - box / 2 : `calc(${badge.y}% - ${badge.w / 2}%)`,
         width: stageSize > 0 ? box : `${badge.w}%`,
         height: stageSize > 0 ? box : `${badge.w}%`,
-        zIndex: dragging ? 18 : rested ? 16 : 2,
+        zIndex: dragging ? 18 : rested ? 16 : 6,
       }}
     >
     <motion.div
       className={`hero-badge-drag relative h-full w-full select-none ${
         dragging ? "is-dragging" : ""
-      }`}
+      }${canDrag ? "" : " is-static"}`}
       style={{ x, y }}
-      drag
-      dragConstraints={dragBounds}
-      dragElastic={0}
+      drag={canDrag}
+      dragConstraints={canDrag ? dragBounds : false}
+      dragElastic={0.12}
       dragMomentum={false}
-      dragSnapToOrigin={false}
-      dragTransition={{ bounceStiffness: 300, bounceDamping: 20 }}
-      animate={{ scale: 1, rotate: 0 }}
-      whileDrag={reduceMotion ? { cursor: "grabbing" } : whileDragMotion}
-      transition={dragSpring}
+      dragListener={canDrag}
       onDragStart={() => {
         setRested(true);
         setDragging(true);
@@ -182,8 +193,8 @@ function DraggableBadge({
       onDragEnd={() => {
         setDragging(false);
       }}
-      aria-label={`Move ${badge.alt} sticker`}
-      role="button"
+      aria-label={canDrag ? `Move ${badge.alt} sticker` : badge.alt}
+      role={canDrag ? "button" : undefined}
     >
       <div
         className={`hero-badge-float relative h-full w-full${rested ? " is-rested" : ""}`}
@@ -198,12 +209,7 @@ function DraggableBadge({
           className={`hero-sticker${dragging ? " is-dragging" : ""}`}
           style={peelStyle(badge.x, badge.y, index)}
         >
-          <div
-            className="hero-sticker-face"
-            style={{
-              ["--badge-mask" as string]: `url("${withBasePath(`/img/badges/${badge.file}`)}")`,
-            }}
-          >
+          <div className="hero-sticker-face">
             <AssetImage
               src={`/img/badges/${badge.file}`}
               alt=""
@@ -212,6 +218,13 @@ function DraggableBadge({
               width={160}
               height={160}
               className="pointer-events-none block h-full w-full max-w-none object-contain"
+            />
+            <span
+              className="hero-sticker-sheen"
+              aria-hidden="true"
+              style={{
+                ["--badge-mask" as string]: `url("${withBasePath(`/img/badges/${badge.file}`)}")`,
+              }}
             />
           </div>
         </div>
@@ -224,6 +237,7 @@ function DraggableBadge({
 export function HeroBadges({ constraintsRef }: HeroBadgesProps) {
   const { badges, avatar } = hero;
   const [resetId, setResetId] = useState(0);
+  const canDrag = useDesktopDrag();
   const stageRef = useRef<HTMLDivElement>(null);
   const stageSize = useElementSize(stageRef);
 
@@ -241,11 +255,12 @@ export function HeroBadges({ constraintsRef }: HeroBadgesProps) {
           constraintsRef={constraintsRef}
           resetId={resetId}
           stageSize={stageSize}
+          canDrag={canDrag}
         />
       ))}
       <button
         type="button"
-        className="focus-ring absolute left-1/2 top-[48%] z-[17] aspect-square w-[52%] -translate-x-1/2 -translate-y-1/2 cursor-pointer overflow-visible rounded-full border-0 bg-transparent p-0"
+        className="focus-ring absolute left-1/2 top-[48%] z-[5] aspect-square w-[52%] -translate-x-1/2 -translate-y-1/2 cursor-pointer overflow-visible rounded-full border-0 bg-transparent p-0"
         aria-label="Reset skill stickers"
         onClick={() => setResetId((count) => count + 1)}
       >

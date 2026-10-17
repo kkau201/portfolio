@@ -115,10 +115,18 @@ body {
 .hero-badge-drag {
   pointer-events: auto;
   cursor: grab;
-  touch-action: pan-y !important;
+  touch-action: none;
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
+}
+
+.hero-badge-drag.is-static,
+.hero-badge-drag.is-static .hero-badge-float,
+.hero-badge-drag.is-static .hero-sticker {
+  pointer-events: none !important;
+  cursor: default;
+  touch-action: pan-y !important;
 }
 
 .hero-badge-drag:active,
@@ -171,6 +179,13 @@ body {
   display: block;
   height: 100%;
   width: 100%;
+}
+
+.hero-sticker-sheen {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
   -webkit-mask-image: var(--badge-mask);
   mask-image: var(--badge-mask);
   -webkit-mask-size: contain;
@@ -181,7 +196,7 @@ body {
   mask-position: center;
 }
 
-.hero-sticker-face::after {
+.hero-sticker-sheen::after {
   content: "";
   position: absolute;
   inset: -30%;
@@ -227,17 +242,17 @@ body {
     animation-play-state: paused;
   }
 
-  .hero-badge-float:not(.is-rested) .hero-sticker:hover .hero-sticker-face::after {
+  .hero-badge-float:not(.is-rested) .hero-sticker:hover .hero-sticker-sheen::after {
     animation: hero-sticker-glint 0.35s ease-out;
   }
 
   .hero-sticker.is-dragging,
   .hero-sticker.is-dragging:hover {
-    transform: none;
+    transform: scale(1.15) rotate(6deg);
     filter: none;
   }
 
-  .hero-sticker.is-dragging:hover .hero-sticker-face::after {
+  .hero-sticker.is-dragging:hover .hero-sticker-sheen::after {
     animation: none;
   }
 }
@@ -508,7 +523,7 @@ body {
     filter: none;
   }
 
-  .hero-sticker:hover .hero-sticker-face::after {
+  .hero-sticker:hover .hero-sticker-sheen::after {
     animation: none;
   }
 
