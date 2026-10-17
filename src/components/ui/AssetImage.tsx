@@ -6,6 +6,7 @@ type AssetImageProps = Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "alt"> 
   alt: string;
   fill?: boolean;
   priority?: boolean;
+  eager?: boolean;
   sizes?: string;
 };
 
@@ -14,6 +15,7 @@ export function AssetImage({
   alt,
   fill = false,
   priority = false,
+  eager = false,
   className,
   sizes,
   width,
@@ -41,11 +43,11 @@ export function AssetImage({
       height={fill ? undefined : height}
       className={className}
       sizes={sizes}
-      decoding="async"
-      loading={priority ? "eager" : "lazy"}
-      fetchPriority={priority ? "high" : undefined}
       style={{ ...fillStyle, ...style }}
       {...props}
+      decoding="async"
+      loading={priority || eager ? "eager" : "lazy"}
+      fetchPriority={priority ? "high" : eager ? "auto" : "low"}
     />
   );
 }

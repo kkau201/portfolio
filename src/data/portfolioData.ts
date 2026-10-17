@@ -103,14 +103,14 @@ export const featuredProjects: FeaturedProject[] = [
   {
     kicker: "Mobile cross-platform",
     title: "Pūioio",
-    img: "/img/puioio.png",
+    img: "/img/puioio.jpg",
     desc: "A cutting-edge real-time smartphone-based exercise repetition counting system. Engineered utilising on-device sensor data processing, Pūioio empowers users to accurately track physical performance without reliance on external wearables.",
     tags: ["Flutter", "Machine Learning", "Honours Research"],
   },
   {
     kicker: "Native Android",
     title: "Pīkau",
-    img: "/img/pikau.png",
+    img: "/img/pikau.jpg",
     desc: "Currently building Pīkau, a Kotlin and Jetpack Compose tramping companion app, to keep my Android skills sharp while on a career sabbatical.",
     tags: ["Kotlin", "Jetpack Compose", "MVVM"],
   },
@@ -120,7 +120,7 @@ export const archiveProjects: ArchiveProject[] = [
   {
     kicker: "Mobile cross-platform",
     title: "Pūioio",
-    img: "/img/puioio.png",
+    img: "/img/puioio.jpg",
     year: "2022",
     desc: "With the ubiquity of mobile phones and the benefits of tracking physical activity, our final year research explored the feasibility of counting exercise repetitions in real-time, using only on-device inference, on flagship smartphones. As a result, we developed Pūioio, a cross-platform mobile application designed to track repetitions using our proposed pipeline for three standard exercises: Squats, Push-ups, and Pull-ups. Overall, Pūioio attained an accuracy of 98.8% in real-world testing and my partner and I won 1st in our category for the top 'AI & Machine Learning' project.",
     tags: ["Flutter", "Machine Learning", "Honours Research"],
@@ -128,7 +128,7 @@ export const archiveProjects: ArchiveProject[] = [
   {
     kicker: "Native Android",
     title: "Pīkau",
-    img: "/img/pikau.png",
+    img: "/img/pikau.jpg",
     year: "2026",
     desc: "Currently building Pīkau, a Kotlin and Jetpack Compose tramping companion app, to keep my Android skills sharp while on a career sabbatical.",
     tags: ["Kotlin", "Jetpack Compose", "MVVM"],
@@ -136,7 +136,7 @@ export const archiveProjects: ArchiveProject[] = [
   {
     kicker: "Web application",
     title: "The Missed | Web Application Curriculum Resource",
-    img: "/img/missed.png",
+    img: "/img/missed.jpg",
     year: "2017",
     desc: "A web application created as a digital curriculum resource for Year 7-10 students. Includes one-click-translation from English to Māori. Awarded with the amazing opportunity to attend the 100th Anniversary of the Battle of Passchendaele in Belgium by the Ministry of Education. Used technologies: HTML, CSS, jQuery and Adobe Photoshop.",
     tags: ["HTML", "CSS", "jQuery"],
@@ -144,7 +144,7 @@ export const archiveProjects: ArchiveProject[] = [
   {
     kicker: "Design portfolio",
     title: "Mauao Collective | NZQA Level 3 Design Portfolio",
-    img: "/img/mauao.png",
+    img: "/img/mauao.jpg",
     year: "2016",
     desc: "A systematic body of work designed for an art collective consisting of a range of mediums, from logos and invitations to posters and a zine. My year-long portfolio was selected as top 12 nationally in NCEA Design Level 3, placing it in the NZQA Top Art Exhibition touring the country.",
     tags: ["Branding", "Print", "NCEA Design"],

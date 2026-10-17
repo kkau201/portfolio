@@ -217,6 +217,7 @@ function DraggableBadge({
               draggable={false}
               width={160}
               height={160}
+              eager
               className="pointer-events-none block h-full w-full max-w-none object-contain"
             />
             <span

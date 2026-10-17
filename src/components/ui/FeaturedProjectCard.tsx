@@ -6,9 +6,10 @@ import { ViewLink } from "@/components/ui/Button";
 interface FeaturedProjectCardProps {
   project: FeaturedProject;
   href?: string;
+  priority?: boolean;
 }
 
-export function FeaturedProjectCard({ project, href }: FeaturedProjectCardProps) {
+export function FeaturedProjectCard({ project, href, priority = false }: FeaturedProjectCardProps) {
   return (
     <article className="project-card rounded-[28px] border-lime border-4 text-left">
       <div className="grid gap-6 rounded-[23px] p-5 sm:p-6 md:grid-cols-2 md:items-stretch md:gap-8 md:p-7">
@@ -17,6 +18,7 @@ export function FeaturedProjectCard({ project, href }: FeaturedProjectCardProps)
             src={project.img}
             alt={project.title}
             fill
+            priority={priority}
             sizes="(min-width: 760px) 50vw, 100vw"
             className="h-full w-full max-w-none object-cover"
             style={{ width: "100%", height: "100%", objectFit: "cover" }}

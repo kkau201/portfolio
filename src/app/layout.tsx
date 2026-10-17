@@ -35,6 +35,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html id="top" lang="en" className={`${beVietnam.variable} ${calSans.variable}`}>
+      <head>
+        <link
+          rel="preload"
+          as="image"
+          href={withBasePath("/img/avatar.svg")}
+          fetchPriority="high"
+        />
+      </head>
       <body className="min-h-screen bg-oatmeal font-sans text-blueberry">
         <HashScroll />
         <Header />

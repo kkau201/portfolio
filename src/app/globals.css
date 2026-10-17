@@ -186,14 +186,6 @@ body {
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  -webkit-mask-image: var(--badge-mask);
-  mask-image: var(--badge-mask);
-  -webkit-mask-size: contain;
-  mask-size: contain;
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: center;
-  mask-position: center;
 }
 
 .hero-sticker-sheen::after {
@@ -240,6 +232,17 @@ body {
   .hero-badge-float:hover,
   .hero-badge-float:focus-within {
     animation-play-state: paused;
+  }
+
+  .hero-badge-float:not(.is-rested) .hero-sticker:hover .hero-sticker-sheen {
+    -webkit-mask-image: var(--badge-mask);
+    mask-image: var(--badge-mask);
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
   }
 
   .hero-badge-float:not(.is-rested) .hero-sticker:hover .hero-sticker-sheen::after {
