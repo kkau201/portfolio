@@ -11,6 +11,8 @@ interface FeaturedProjectCardProps {
 }
 
 export function FeaturedProjectCard({ project, href, priority = false }: FeaturedProjectCardProps) {
+  const ctaLabel = project.ctaLabel ?? "View case study";
+  const isExternal = Boolean(href?.startsWith("http"));
   const cardClass = `project-card rounded-[28px] border-lime border-4 text-left ${
     href ? "group/arrow cursor-pointer" : ""
   }`;
@@ -45,7 +47,7 @@ export function FeaturedProjectCard({ project, href, priority = false }: Feature
         ) : null}
         {href ? (
           <div className="mt-5">
-            <ViewLink>View case study</ViewLink>
+            <ViewLink>{ctaLabel}</ViewLink>
           </div>
         ) : null}
       </div>
@@ -53,15 +55,26 @@ export function FeaturedProjectCard({ project, href, priority = false }: Feature
   );
 
   if (href) {
+    const linkClass = `${cardClass} block no-underline hover:no-underline focus-ring`;
+    const ariaLabel = `${ctaLabel}: ${project.title}`;
+
     return (
       <article>
-        <Link
-          href={href}
-          className={`${cardClass} block no-underline hover:no-underline focus-ring`}
-          aria-label={`View ${project.title} case study`}
-        >
-          {inner}
-        </Link>
+        {isExternal ? (
+          <a
+            href={href}
+            className={linkClass}
+            aria-label={ariaLabel}
+            target="_blank"
+            rel="noreferrer"
+          >
+            {inner}
+          </a>
+        ) : (
+          <Link href={href} className={linkClass} aria-label={ariaLabel}>
+            {inner}
+          </Link>
+        )}
       </article>
     );
   }

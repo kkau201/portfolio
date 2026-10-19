@@ -24,6 +24,7 @@ export interface FeaturedProject {
   desc: string;
   tags: string[];
   href?: string;
+  ctaLabel?: string;
 }
 
 export interface ArchiveProject {
@@ -34,6 +35,7 @@ export interface ArchiveProject {
   desc: string;
   tags: string[];
   href?: string;
+  ctaLabel?: string;
 }
 
 export interface Role {

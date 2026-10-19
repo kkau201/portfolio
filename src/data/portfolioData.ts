@@ -150,6 +150,8 @@ export const archiveProjects: ArchiveProject[] = [
     year: "2016",
     desc: "A systematic body of work designed for an art collective consisting of a range of mediums, from logos and invitations to posters and a zine. My year-long portfolio was selected as top 12 nationally in NCEA Design Level 3, placing it in the NZQA Top Art Exhibition touring the country.",
     tags: ["Branding", "Print", "NCEA Design"],
+    href: "https://www.nzherald.co.nz/rotorua-daily-post/news/girls-high-student-to-feature-in-exhibition/WO2AKN4XY7PDLKDBU3JOS55XTQ/",
+    ctaLabel: "View article",
   },
 ];
 
