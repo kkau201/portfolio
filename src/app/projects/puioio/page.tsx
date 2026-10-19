@@ -72,7 +72,7 @@ export default function PuioioCaseStudyPage() {
             </div>
             <div className="mt-12">
               <ButtonLink href={study.paperHref} variant="outline" external>
-                {study.paperLabel} <Icon name="right" className="size-6" />
+                {study.paperLabel}
               </ButtonLink>
             </div>
           </aside>

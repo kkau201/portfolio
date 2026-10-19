@@ -114,6 +114,7 @@ export const featuredProjects: FeaturedProject[] = [
     img: "/img/pikau.jpg",
     desc: "Currently building Pīkau, a Kotlin and Jetpack Compose tramping companion app, to keep my Android skills sharp while on a career sabbatical.",
     tags: ["Kotlin", "Jetpack Compose", "MVVM"],
+    href: "/projects/pikau",
   },
 ];
 
@@ -134,6 +135,7 @@ export const archiveProjects: ArchiveProject[] = [
     year: "2026",
     desc: "Currently building Pīkau, a Kotlin and Jetpack Compose tramping companion app, to keep my Android skills sharp while on a career sabbatical.",
     tags: ["Kotlin", "Jetpack Compose", "MVVM"],
+    href: "/projects/pikau",
   },
   {
     kicker: "Web application",

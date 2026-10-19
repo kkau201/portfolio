@@ -30,9 +30,17 @@ export function ButtonLink({
   ripple = false,
 }: ButtonLinkProps) {
   const className = `${variants[variant]} focus-ring`;
-  const extra = external
+  const isExternal = Boolean(external) || (!download && href.startsWith("http"));
+  const extra = isExternal
     ? { target: "_blank", rel: "noreferrer" }
     : {};
+  const iconClass = variant === "outline" ? "size-6" : "size-3.5";
+  const content = (
+    <>
+      {children}
+      {isExternal ? <Icon name="open" className={iconClass} /> : null}
+    </>
+  );
 
   if (download || href.startsWith("mailto:") || href.startsWith("http")) {
     const Anchor = ripple ? RippleLink : "a";
@@ -44,14 +52,14 @@ export function ButtonLink({
         aria-label={ariaLabel}
         {...extra}
       >
-        {children}
+        {content}
       </Anchor>
     );
   }
 
   return (
     <Link href={href} className={className} aria-label={ariaLabel}>
-      {children}
+      {content}
     </Link>
   );
 }

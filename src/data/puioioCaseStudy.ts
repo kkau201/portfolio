@@ -97,6 +97,6 @@ export const puioioCaseStudy = {
   ],
   next: {
     label: "NEXT PROJECT: Pīkau",
-    href: "/projects",
+    href: "/projects/pikau",
   },
 };
