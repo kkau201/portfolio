@@ -142,6 +142,16 @@ export const archiveProjects: ArchiveProject[] = [
     year: "2017",
     desc: "A web application created as a digital curriculum resource for Year 7-10 students. Includes one-click-translation from English to Māori. Awarded with the amazing opportunity to attend the 100th Anniversary of the Battle of Passchendaele in Belgium by the Ministry of Education. Used technologies: HTML, CSS, jQuery and Adobe Photoshop.",
     tags: ["HTML", "CSS", "jQuery"],
+    links: [
+      {
+        label: "View website",
+        href: "https://kkau201.github.io/The-Missed/index.html",
+      },
+      {
+        label: "View article",
+        href: "https://www.nzherald.co.nz/rotorua-daily-post/news/rotorua-girls-high-school-students-win-trip-to-belgium/DBMMTCWSL4ZDBAFLENFNEMCI4M/",
+      },
+    ],
   },
   {
     kicker: "Design portfolio",

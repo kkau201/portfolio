@@ -72,6 +72,9 @@ export function ViewLink({ href, children }: ViewLinkProps) {
     </>
   );
 
+  const className =
+    "group/arrow focus-ring inline-flex items-center gap-1 rounded-sm text-sm font-medium text-tangerine no-underline hover:no-underline";
+
   if (!href) {
     return (
       <span
@@ -83,11 +86,16 @@ export function ViewLink({ href, children }: ViewLinkProps) {
     );
   }
 
+  if (href.startsWith("http") || href.startsWith("mailto:")) {
+    return (
+      <a href={href} className={className} target="_blank" rel="noreferrer">
+        {label}
+      </a>
+    );
+  }
+
   return (
-    <Link
-      href={href}
-      className="group/arrow focus-ring inline-flex items-center gap-1 rounded-sm text-sm font-medium text-tangerine no-underline hover:no-underline"
-    >
+    <Link href={href} className={className}>
       {label}
     </Link>
   );

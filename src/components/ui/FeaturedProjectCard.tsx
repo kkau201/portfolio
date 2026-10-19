@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { FeaturedProject } from "@/types/portfolio";
+import type { FeaturedProject, ProjectCta } from "@/types/portfolio";
 import { AssetImage } from "@/components/ui/AssetImage";
 import { Tag } from "@/components/ui/Tag";
 import { ViewLink } from "@/components/ui/Button";
@@ -10,11 +10,20 @@ interface FeaturedProjectCardProps {
   priority?: boolean;
 }
 
+function isExternalHref(href: string) {
+  return href.startsWith("http") || href.startsWith("mailto:");
+}
+
 export function FeaturedProjectCard({ project, href, priority = false }: FeaturedProjectCardProps) {
-  const ctaLabel = project.ctaLabel ?? "View case study";
-  const isExternal = Boolean(href?.startsWith("http"));
+  const links: ProjectCta[] =
+    project.links && project.links.length > 0
+      ? project.links
+      : href
+        ? [{ label: project.ctaLabel ?? "View case study", href }]
+        : [];
+  const cardHref = links.length === 1 ? links[0].href : undefined;
   const cardClass = `project-card rounded-[28px] border-lime border-4 text-left ${
-    href ? "group/arrow cursor-pointer" : ""
+    cardHref ? "group/arrow cursor-pointer" : ""
   }`;
 
   const inner = (
@@ -45,24 +54,28 @@ export function FeaturedProjectCard({ project, href, priority = false }: Feature
             ))}
           </div>
         ) : null}
-        {href ? (
-          <div className="mt-5">
-            <ViewLink>{ctaLabel}</ViewLink>
+        {links.length > 0 ? (
+          <div className="mt-5 flex flex-row flex-wrap items-center gap-x-6 gap-y-2">
+            {links.map((link) => (
+              <ViewLink key={link.href} href={cardHref ? undefined : link.href}>
+                {link.label}
+              </ViewLink>
+            ))}
           </div>
         ) : null}
       </div>
     </div>
   );
 
-  if (href) {
+  if (cardHref) {
     const linkClass = `${cardClass} block no-underline hover:no-underline focus-ring`;
-    const ariaLabel = `${ctaLabel}: ${project.title}`;
+    const ariaLabel = `${links[0].label}: ${project.title}`;
 
     return (
       <article>
-        {isExternal ? (
+        {isExternalHref(cardHref) ? (
           <a
-            href={href}
+            href={cardHref}
             className={linkClass}
             aria-label={ariaLabel}
             target="_blank"
@@ -71,7 +84,7 @@ export function FeaturedProjectCard({ project, href, priority = false }: Feature
             {inner}
           </a>
         ) : (
-          <Link href={href} className={linkClass} aria-label={ariaLabel}>
+          <Link href={cardHref} className={linkClass} aria-label={ariaLabel}>
             {inner}
           </Link>
         )}

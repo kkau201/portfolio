@@ -17,6 +17,11 @@ export interface Hobby {
   motion: HobbyMotion;
 }
 
+export interface ProjectCta {
+  label: string;
+  href: string;
+}
+
 export interface FeaturedProject {
   kicker: string;
   title: string;
@@ -25,6 +30,7 @@ export interface FeaturedProject {
   tags: string[];
   href?: string;
   ctaLabel?: string;
+  links?: ProjectCta[];
 }
 
 export interface ArchiveProject {
@@ -36,6 +42,7 @@ export interface ArchiveProject {
   tags: string[];
   href?: string;
   ctaLabel?: string;
+  links?: ProjectCta[];
 }
 
 export interface Role {
