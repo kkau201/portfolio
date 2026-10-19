@@ -536,3 +536,21 @@ body {
     animation: none;
   }
 }
+
+.app-phone-layer {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.app-phone-layer.is-on {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-phone-layer {
+    transition: none;
+  }
+}
+
+

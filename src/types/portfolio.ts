@@ -23,6 +23,7 @@ export interface FeaturedProject {
   img: string;
   desc: string;
   tags: string[];
+  href?: string;
 }
 
 export interface ArchiveProject {
@@ -32,6 +33,7 @@ export interface ArchiveProject {
   year: string;
   desc: string;
   tags: string[];
+  href?: string;
 }
 
 export interface Role {

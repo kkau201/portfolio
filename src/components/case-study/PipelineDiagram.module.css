@@ -1,0 +1,140 @@
+.puioioFlowWrap {
+  margin-top: 2.5rem;
+  overflow: visible;
+  padding: 1.25rem 0.5rem 0.5rem;
+}
+
+.puioioFlow {
+  display: grid;
+  width: 100%;
+  max-width: 64rem;
+  grid-template-columns: 1.6rem 6.6rem 3rem 9.6rem 3rem 9.6rem 2.4rem 9.6rem 3rem 9.6rem;
+  grid-template-rows: 6.6rem 2.6rem 6.6rem;
+  grid-template-areas:
+    "vline current a1 pose a2 thresh . . . ."
+    "vline . diagOpt . . . diagDown . . ."
+    "vline prev a4 optical long long long state a6 counter";
+  align-items: center;
+  justify-items: center;
+}
+
+.puioioNode {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #f55937;
+  border-radius: 20px;
+  padding: 0.5rem 0.6rem;
+  color: #f55937;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  background: transparent;
+}
+
+.puioioNodeStep {
+  z-index: 3;
+}
+
+.puioioNodeStep:hover {
+  background: rgba(245, 89, 55, 0.08);
+}
+
+.pipelineStage {
+  overflow: visible;
+}
+
+.pipelineCard {
+  position: absolute;
+  top: 0;
+  left: 75%;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translate(-50%, calc(-35% + 10px));
+  transition:
+    opacity 0.2s ease-out,
+    transform 0.2s ease-out,
+    visibility 0.2s ease-out;
+}
+
+.pipelineCard.isVisible,
+.pipelineStage:has([data-n="1"]:hover) [data-card="1"],
+.pipelineStage:has([data-n="2"]:hover) [data-card="2"],
+.pipelineStage:has([data-n="3"]:hover) [data-card="3"],
+.pipelineStage:has([data-n="4"]:hover) [data-card="4"],
+.pipelineStage:has([data-n="5"]:hover) [data-card="5"] {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, -35%);
+}
+
+.puioioStep {
+  position: absolute;
+  top: -18px;
+  left: -6px;
+  display: grid;
+  width: 41px;
+  height: 41px;
+  place-items: center;
+}
+
+.puioioStep img {
+  position: absolute;
+  inset: 0;
+  width: 41px;
+  height: 41px;
+}
+
+.puioioStep span {
+  position: relative;
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.puioioArrow {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.isLong img {
+  width: 100%;
+  height: auto;
+}
+
+.isVert {
+  grid-row: 1 / 4;
+  align-self: stretch;
+  width: 16px;
+  overflow: visible;
+}
+
+.isVert img {
+  width: 15.5rem;
+  max-width: none;
+  height: 15px;
+  transform: rotate(90deg);
+}
+
+.isDiagDown img,
+.isDiagOpt img {
+  transform: rotate(45deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pipelineCard {
+    transition: none;
+    transform: translate(-50%, -35%);
+  }
+}

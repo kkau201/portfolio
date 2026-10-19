@@ -10,6 +10,7 @@ export default function ProjectsPage() {
           <FeaturedProjectCard
             key={project.title}
             project={project}
+            href={project.href}
             priority={index === 0}
           />
         ))}

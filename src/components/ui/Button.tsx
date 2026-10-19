@@ -6,7 +6,7 @@ import { RippleLink } from "@/components/ui/RippleLink";
 interface ButtonLinkProps {
   href: string;
   children: ReactNode;
-  variant: "outline" | "pill" | "text";
+  variant: "outline" | "pill" | "text" ;
   download?: boolean;
   external?: boolean;
   ariaLabel?: string;
@@ -57,14 +57,38 @@ export function ButtonLink({
 }
 
 interface ViewLinkProps {
-  href: string;
+  href?: string;
   children: ReactNode;
 }
 
+const viewLinkIconClass =
+  "size-3.5 motion-safe:group-hover/arrow:animate-arrow-nudge-right motion-safe:group-focus-visible/arrow:animate-arrow-nudge-right motion-safe:group-focus-within/arrow:animate-arrow-nudge-right";
+
 export function ViewLink({ href, children }: ViewLinkProps) {
+  const label = (
+    <>
+      {children}
+      <Icon name="right" className={viewLinkIconClass} />
+    </>
+  );
+
+  if (!href) {
+    return (
+      <span
+        className="inline-flex items-center gap-1 text-sm font-medium text-tangerine"
+        aria-hidden="true"
+      >
+        {label}
+      </span>
+    );
+  }
+
   return (
-    <ButtonLink href={href} variant="text">
-      {children} <Icon name="right" className="size-3.5" />
-    </ButtonLink>
+    <Link
+      href={href}
+      className="group/arrow focus-ring inline-flex items-center gap-1 rounded-sm text-sm font-medium text-tangerine no-underline hover:no-underline"
+    >
+      {label}
+    </Link>
   );
 }

@@ -30,10 +30,20 @@ module.exports = {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-8px)" },
         },
+        "arrow-nudge-right": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(8px)" },
+        },
+        "arrow-nudge-left": {
+          "0%, 100%": { transform: "translateX(0)" },
+          "50%": { transform: "translateX(-8px)" },
+        },
       },
       animation: {
         "arrow-nudge": "arrow-nudge 0.7s ease-in-out infinite",
         "arrow-nudge-up": "arrow-nudge-up 0.7s ease-in-out infinite",
+        "arrow-nudge-right": "arrow-nudge-right 0.7s ease-in-out infinite",
+        "arrow-nudge-left": "arrow-nudge-left 0.7s ease-in-out infinite",
       },
     },
   },

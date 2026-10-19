@@ -106,6 +106,7 @@ export const featuredProjects: FeaturedProject[] = [
     img: "/img/puioio.jpg",
     desc: "A cutting-edge real-time smartphone-based exercise repetition counting system. Engineered utilising on-device sensor data processing, Pūioio empowers users to accurately track physical performance without reliance on external wearables.",
     tags: ["Flutter", "Machine Learning", "Honours Research"],
+    href: "/projects/puioio",
   },
   {
     kicker: "Native Android",
@@ -124,6 +125,7 @@ export const archiveProjects: ArchiveProject[] = [
     year: "2022",
     desc: "With the ubiquity of mobile phones and the benefits of tracking physical activity, our final year research explored the feasibility of counting exercise repetitions in real-time, using only on-device inference, on flagship smartphones. As a result, we developed Pūioio, a cross-platform mobile application designed to track repetitions using our proposed pipeline for three standard exercises: Squats, Push-ups, and Pull-ups. Overall, Pūioio attained an accuracy of 98.8% in real-world testing and my partner and I won 1st in our category for the top 'AI & Machine Learning' project.",
     tags: ["Flutter", "Machine Learning", "Honours Research"],
+    href: "/projects/puioio",
   },
   {
     kicker: "Native Android",
