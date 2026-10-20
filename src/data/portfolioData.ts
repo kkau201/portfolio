@@ -134,7 +134,7 @@ export const archiveProjects: ArchiveProject[] = [
     img: "/img/pikau.jpg",
     year: "2026",
     desc: "Currently building Pīkau, a Kotlin and Jetpack Compose tramping companion app, to keep my Android skills sharp while on a career sabbatical.",
-    tags: ["Kotlin", "Jetpack Compose", "MVVM"],
+    tags: ["Kotlin", "Jetpack Compose", "MVVM", "Figma"],
     href: "/projects/pikau",
   },
   {
@@ -142,7 +142,7 @@ export const archiveProjects: ArchiveProject[] = [
     title: "The Missed | Web Application Curriculum Resource",
     img: "/img/missed.jpg",
     year: "2017",
-    desc: "A web application created as a digital curriculum resource for Year 7-10 students. Includes one-click-translation from English to Māori. Awarded with the amazing opportunity to attend the 100th Anniversary of the Battle of Passchendaele in Belgium by the Ministry of Education. Used technologies: HTML, CSS, jQuery and Adobe Photoshop.",
+    desc: "A web application created as a digital curriculum resource for Year 7-10 students. Includes one-click-translation from English to Māori. Awarded with the amazing opportunity to attend the 100th Anniversary of the Battle of Passchendaele in Belgium by the Ministry of Education.",
     tags: ["HTML", "CSS", "jQuery"],
     links: [
       {
@@ -161,7 +161,7 @@ export const archiveProjects: ArchiveProject[] = [
     img: "/img/mauao.jpg",
     year: "2016",
     desc: "A systematic body of work designed for an art collective consisting of a range of mediums, from logos and invitations to posters and a zine. My year-long portfolio was selected as top 12 nationally in NCEA Design Level 3, placing it in the NZQA Top Art Exhibition touring the country.",
-    tags: ["Branding", "Print", "NCEA Design"],
+    tags: ["Adobe Photoshop", "Adobe InDesign", "Photography", "Digital Design"],
     href: "https://www.nzherald.co.nz/rotorua-daily-post/news/girls-high-student-to-feature-in-exhibition/WO2AKN4XY7PDLKDBU3JOS55XTQ/",
     ctaLabel: "View article",
   },

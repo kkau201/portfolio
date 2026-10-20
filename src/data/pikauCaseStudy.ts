@@ -11,13 +11,13 @@ export const pikauCaseStudy = {
     stack: ["Kotlin", "Jetpack Compose", "MVVM"],
   },
   challenge:
-    "Most tramping tools I used were either paper, a jumble of unrelated apps, or products that assumed constant connectivity. I wanted a single native Android companion that felt at home on the trail: fast, offline-friendly, and designed around how I actually plan and walk trips in Aotearoa. Building it solo on sabbatical also meant choosing a stack I could stand behind in production — Kotlin, Jetpack Compose, and MVVM — without leaning on a cross-platform shortcut.",
+    "Most tramping tools I used were either paper, a jumble of unrelated apps, or products that assumed constant connectivity. I wanted a single native Android companion that felt at home on the trail: fast, offline-friendly, and designed around how I actually plan and walk trips in Aotearoa.",
   approachIntro:
     "Pīkau is still in active development. The early architecture decisions are the ones I would make on a commercial Android codebase:",
   approach: [
     {
       title: "Native Kotlin & Jetpack Compose",
-      body: "The UI is Compose-first so screens, state, and motion stay in one modern toolkit. That keeps the project aligned with the apps I shipped commercially, rather than treating sabbatical work as a throwaway prototype.",
+      body: "The UI is Compose-first so screens, state, and motion stay in one modern toolkit. That keeps the project aligned with the apps I shipped commercially.",
     },
     {
       title: "MVVM as the backbone",
