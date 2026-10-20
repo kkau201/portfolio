@@ -11,6 +11,15 @@ import { puioioCaseStudy as study } from "@/data/puioioCaseStudy";
 export const metadata: Metadata = {
   title: "Pūioio — Kayla Kautai",
   description: study.overview,
+  alternates: {
+    canonical: "/projects/puioio",
+  },
+  openGraph: {
+    title: "Pūioio — Kayla Kautai",
+    description: study.overview,
+    url: "/projects/puioio",
+    type: "article",
+  },
 };
 
 export default function PuioioCaseStudyPage() {

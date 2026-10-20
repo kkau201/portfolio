@@ -31,7 +31,7 @@ export function FeaturedProjectCard({ project, href, priority = false }: Feature
       <div className="project-card-media h-[240px] overflow-hidden rounded-[18px] md:h-full md:min-h-[380px]">
         <AssetImage
           src={project.img}
-          alt={project.title}
+          alt={project.imgAlt ?? `${project.title} project preview`}
           fill
           priority={priority}
           sizes="(min-width: 760px) 50vw, 100vw"

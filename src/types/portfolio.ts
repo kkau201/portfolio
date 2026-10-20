@@ -26,6 +26,7 @@ export interface FeaturedProject {
   kicker: string;
   title: string;
   img: string;
+  imgAlt?: string;
   desc: string;
   tags: string[];
   href?: string;
@@ -37,6 +38,7 @@ export interface ArchiveProject {
   kicker: string;
   title: string;
   img: string;
+  imgAlt?: string;
   year: string;
   desc: string;
   tags: string[];

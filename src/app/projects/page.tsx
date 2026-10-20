@@ -1,5 +1,22 @@
+import type { Metadata } from "next";
 import { archiveProjects } from "@/data/portfolioData";
 import { FeaturedProjectCard } from "@/components/ui/FeaturedProjectCard";
+
+export const metadata: Metadata = {
+  title: "Projects | Kayla Kautai",
+  description:
+    "Selected Android, mobile, and design projects by Kayla Kautai, including Pūioio and Pīkau.",
+  alternates: {
+    canonical: "/projects",
+  },
+  openGraph: {
+    title: "Projects | Kayla Kautai",
+    description:
+      "Selected Android, mobile, and design projects by Kayla Kautai, including Pūioio and Pīkau.",
+    url: "/projects",
+    type: "website",
+  },
+};
 
 export default function ProjectsPage() {
   return (

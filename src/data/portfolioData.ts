@@ -11,9 +11,9 @@ import type {
 } from "@/types/portfolio";
 
 export const siteMeta: SiteMeta = {
-  title: "Kayla Kautai — Software Engineer",
+  title: "Kayla Kautai | Android Developer & Software Engineer",
   description:
-    "Software Engineer specialising in Android development with 3+ years of commercial experience building native Kotlin apps.",
+    "Portfolio of Kayla Kautai, a Software Engineer specializing in native Android development with Kotlin, Jetpack Compose, and Kotlin Multiplatform (KMP).",
   shortName: "Kayla.",
   copyright: "©2026 Kayla Kautai. All rights reserved.",
 };
@@ -52,7 +52,7 @@ export const hero: HeroContent = {
   ],
   avatar: {
     src: "/img/avatar.svg",
-    alt: "Illustrated portrait of Kayla Kautai",
+    alt: "Illustrated portrait of Kayla Kautai, Android developer and software engineer",
   },
   badges: [
     { file: "ux.svg", alt: "UI/UX Design", x: 38, y: 12, w: 16, amp: 6, speed: 0.35, phase: 0.2 },
@@ -104,6 +104,7 @@ export const featuredProjects: FeaturedProject[] = [
     kicker: "Mobile cross-platform",
     title: "Pūioio",
     img: "/img/puioio.jpg",
+    imgAlt: "Pūioio app preview - smartphone ML exercise repetition counter",
     desc: "A cutting-edge real-time smartphone-based exercise repetition counting system. Engineered utilising on-device sensor data processing, Pūioio empowers users to accurately track physical performance without reliance on external wearables.",
     tags: ["Flutter", "Machine Learning", "Honours Research"],
     href: "/projects/puioio",
@@ -112,6 +113,7 @@ export const featuredProjects: FeaturedProject[] = [
     kicker: "Native Android",
     title: "Pīkau",
     img: "/img/pikau.jpg",
+    imgAlt: "Pīkau app preview - Kotlin and Jetpack Compose tramping companion for Android",
     desc: "Currently building Pīkau, a Kotlin and Jetpack Compose tramping companion app, to keep my Android skills sharp while on a career sabbatical.",
     tags: ["Kotlin", "Jetpack Compose", "MVVM"],
     href: "/projects/pikau",
@@ -123,6 +125,7 @@ export const archiveProjects: ArchiveProject[] = [
     kicker: "Mobile cross-platform",
     title: "Pūioio",
     img: "/img/puioio.jpg",
+    imgAlt: "Pūioio app preview - smartphone ML exercise repetition counter",
     year: "2022",
     desc: "With the ubiquity of mobile phones and the benefits of tracking physical activity, our final year research explored the feasibility of counting exercise repetitions in real-time, using only on-device inference, on flagship smartphones. As a result, we developed Pūioio, a cross-platform mobile application designed to track repetitions using our proposed pipeline for three standard exercises: Squats, Push-ups, and Pull-ups. Overall, Pūioio attained an accuracy of 98.8% in real-world testing and my partner and I won 1st in our category for the top 'AI & Machine Learning' project.",
     tags: ["Flutter", "Machine Learning", "Honours Research"],
@@ -132,6 +135,7 @@ export const archiveProjects: ArchiveProject[] = [
     kicker: "Native Android",
     title: "Pīkau",
     img: "/img/pikau.jpg",
+    imgAlt: "Pīkau app preview - Kotlin and Jetpack Compose tramping companion for Android",
     year: "2026",
     desc: "Currently building Pīkau, a Kotlin and Jetpack Compose tramping companion app, to keep my Android skills sharp while on a career sabbatical.",
     tags: ["Kotlin", "Jetpack Compose", "MVVM", "Figma"],
@@ -141,6 +145,8 @@ export const archiveProjects: ArchiveProject[] = [
     kicker: "Web application",
     title: "The Missed | Web Application Curriculum Resource",
     img: "/img/missed.jpg",
+    imgAlt:
+      "The Missed web app preview - digital curriculum resource with English to Māori translation",
     year: "2017",
     desc: "A web application created as a digital curriculum resource for Year 7-10 students. Includes one-click-translation from English to Māori. Awarded with the amazing opportunity to attend the 100th Anniversary of the Battle of Passchendaele in Belgium by the Ministry of Education.",
     tags: ["HTML", "CSS", "jQuery"],
@@ -159,6 +165,8 @@ export const archiveProjects: ArchiveProject[] = [
     kicker: "Design portfolio",
     title: "Mauao Collective | NZQA Level 3 Design Portfolio",
     img: "/img/mauao.jpg",
+    imgAlt:
+      "Mauao Collective design portfolio preview - NZQA Level 3 print, branding, and zine work",
     year: "2016",
     desc: "A systematic body of work designed for an art collective consisting of a range of mediums, from logos and invitations to posters and a zine. My year-long portfolio was selected as top 12 nationally in NCEA Design Level 3, placing it in the NZQA Top Art Exhibition touring the country.",
     tags: ["Adobe Photoshop", "Adobe InDesign", "Photography", "Digital Design"],
