@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { hero } from "@/data/portfolioData";
 import { HeroBadges } from "@/components/sections/HeroBadges";
 import { Icon } from "@/components/ui/Icon";
+import {DownloadCvButton} from "@/components/ui/DownloadCvButton";
 
 export function Hero() {
   const constraintsRef = useRef<HTMLElement>(null);
@@ -34,6 +35,9 @@ export function Hero() {
               {paragraph}
             </p>
           ))}
+            <div className="mt-8">
+                <DownloadCvButton />
+            </div>
         </div>
 
         <HeroBadges constraintsRef={constraintsRef} />
