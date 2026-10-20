@@ -16,7 +16,7 @@ export function Hero() {
         aria-labelledby="hero-heading"
         className="page-wrap relative grid items-center gap-10 overflow-visible pb-20 pt-6 sm:pb-20 sm:pt-8 md:grid-cols-[1.05fr_0.95fr] md:gap-6 md:pb-24 md:pt-10 lg:pb-28 lg:pt-12"
       >
-        <div className="text-left">
+        <div className="flex flex-col items-center text-center md:items-start md:text-left">
           <p className="text-[22px] font-medium italic text-blueberry">{hero.greeting}</p>
           <h1
             id="hero-heading"
