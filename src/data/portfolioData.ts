@@ -117,8 +117,8 @@ export const featuredProjects: FeaturedProject[] = [
     imgAlt: "Pīkau app preview - Kotlin and Jetpack Compose tramping companion for Android",
     year: "2026",
     status: "wip",
-    desc: "Currently building Pīkau, a Kotlin and Jetpack Compose tramping companion app, to keep my Android skills sharp while on a career sabbatical.",
-    tags: ["Kotlin", "Jetpack Compose", "MVVM"],
+    desc: "A native Android app for trip planning and gear tracking, built with Jetpack Compose, Room, Hilt, and Navigation 3. Home, Gear, Trips, and Me are in the app. Trip and gear detail are still to build.",
+    tags: ["Kotlin", "Jetpack Compose", "Room", "Hilt"],
     href: "/projects/pikau",
   },
 ];
@@ -141,8 +141,8 @@ export const archiveProjects: ArchiveProject[] = [
     imgAlt: "Pīkau app preview - Kotlin and Jetpack Compose tramping companion for Android",
     year: "2026",
     status: "wip",
-    desc: "Currently building Pīkau, a Kotlin and Jetpack Compose tramping companion app, to keep my Android skills sharp while on a career sabbatical.",
-    tags: ["Kotlin", "Jetpack Compose", "MVVM", "Figma"],
+    desc: "A modular Jetpack Compose app for planning tramping trips and managing gear. Home, Gear, Trips, and Me are in the app. Trip and gear detail and create flows are still to build. Packing, food, and notes already exist in Room.",
+    tags: ["Kotlin", "Jetpack Compose", "Room", "Hilt", "Navigation 3"],
     href: "/projects/pikau",
   },
   {

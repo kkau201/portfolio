@@ -3,14 +3,32 @@
 import { useEffect, useRef, useState } from "react";
 import { useReducedMotion } from "framer-motion";
 import { AssetImage } from "@/components/ui/AssetImage";
-import { puioioCaseStudy } from "@/data/puioioCaseStudy";
 
-const slides = puioioCaseStudy.appSlides;
+export interface AppSlide {
+  title: string;
+  paragraphs: readonly string[];
+  image: {
+    src: string;
+    alt: string;
+  };
+}
 
-export function AppSlides() {
+export function AppSlides({
+  slides,
+  invert = false,
+}: {
+  slides: readonly AppSlide[];
+  invert?: boolean;
+}) {
   const [active, setActive] = useState(0);
   const rootRef = useRef<HTMLDivElement>(null);
   const reduceMotion = useReducedMotion();
+  const titleClass = invert
+    ? "text-[20px] font-medium leading-tight text-lime md:text-[24px]"
+    : "text-[20px] font-medium leading-tight text-tangerine md:text-[24px]";
+  const bodyClass = invert
+    ? "mt-5 max-w-[34rem] leading-normal text-oatmeal"
+    : "mt-5 max-w-[34rem] leading-normal text-blueberry";
 
   useEffect(() => {
     const root = rootRef.current;
@@ -70,14 +88,9 @@ export function AppSlides() {
             data-slide-index={index}
             className="flex min-h-[80vh] flex-col justify-center py-16 md:py-24"
           >
-            <h3 className="text-[20px] font-medium leading-tight text-tangerine md:text-[24px]">
-              {slide.title}
-            </h3>
+            <h3 className={titleClass}>{slide.title}</h3>
             {slide.paragraphs.map((paragraph) => (
-              <p
-                key={paragraph.slice(0, 24)}
-                className="mt-5 max-w-[34rem] leading-normal text-blueberry"
-              >
+              <p key={paragraph.slice(0, 24)} className={bodyClass}>
                 {paragraph}
               </p>
             ))}

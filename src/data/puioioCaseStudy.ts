@@ -68,7 +68,7 @@ export const puioioCaseStudy = {
     {
       title: "UX & Edge-Case Handling",
       paragraphs: [
-        "I designed an intuitive onboarding flow, including an exercise carousel, rep counter, and a 10-second setup countdown. To handle real-world edge cases—like a user walking away or dropping their phone—I implemented logic that automatically pauses the workout and triggers a “We've lost you!” warning when pose confidence drops, resuming seamlessly once the user returns.",
+        "I designed an intuitive onboarding flow, including an exercise carousel, rep counter, and a 10-second setup countdown. To handle real-world edge cases, like a user walking away or dropping their phone, I implemented logic that automatically pauses the workout and triggers a “We've lost you!” warning when pose confidence drops, resuming seamlessly once the user returns.",
       ],
       image: {
         src: "/img/projects/puioio/app-screenshot.jpg",

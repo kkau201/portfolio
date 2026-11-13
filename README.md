@@ -1,4 +1,4 @@
-# Kayla Kautai — Portfolio
+# Kayla Kautai | Portfolio
 
 Personal site for Kayla Kautai, a software engineer specialising in Android. The landing page covers about, featured work, experience, and contact; `/projects` lists the full archive.
 

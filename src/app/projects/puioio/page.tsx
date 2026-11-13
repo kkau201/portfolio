@@ -9,13 +9,13 @@ import { PipelineDiagram } from "@/components/case-study/PipelineDiagram";
 import { puioioCaseStudy as study } from "@/data/puioioCaseStudy";
 
 export const metadata: Metadata = {
-  title: "Pūioio — Kayla Kautai",
+  title: "Pūioio | Kayla Kautai",
   description: study.overview,
   alternates: {
     canonical: "/projects/puioio",
   },
   openGraph: {
-    title: "Pūioio — Kayla Kautai",
+    title: "Pūioio | Kayla Kautai",
     description: study.overview,
     url: "/projects/puioio",
     type: "article",
@@ -40,7 +40,7 @@ export default function PuioioCaseStudyPage() {
       </CaseStudySection>
 
       <CaseStudySection index="03" title="Mobile Application Development" intro={study.appIntro} flushTop>
-        <AppSlides />
+        <AppSlides slides={study.appSlides} />
       </CaseStudySection>
 
       <CaseStudySection index="04" title="Optimising the On-Device Pipeline" flushTop>

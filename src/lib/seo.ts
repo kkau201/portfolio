@@ -15,7 +15,7 @@ export const seo = {
     "New Zealand",
   ],
   ogImage: "/og-image.jpg",
-  ogImageAlt: "Kayla Kautai — Android Developer & Software Engineer",
+  ogImageAlt: "Kayla Kautai | Android Developer & Software Engineer",
 } as const;
 
 export const personJsonLd = {
