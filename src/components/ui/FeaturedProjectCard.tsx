@@ -4,6 +4,14 @@ import { AssetImage } from "@/components/ui/AssetImage";
 import { Tag } from "@/components/ui/Tag";
 import { ViewLink } from "@/components/ui/Button";
 
+function MetaPill({ children, className }: { children: string; className: string }) {
+  return (
+    <p className={`inline-flex rounded-full px-3 py-1 text-[12px] font-normal leading-none ${className}`}>
+      {children}
+    </p>
+  );
+}
+
 interface FeaturedProjectCardProps {
   project: FeaturedProject;
   href?: string;
@@ -40,9 +48,15 @@ export function FeaturedProjectCard({ project, href, priority = false }: Feature
         />
       </div>
       <div className="flex h-full flex-col items-start md:py-1">
-        <p className="inline-flex rounded-full bg-strawberry/25 px-3 py-1 text-[12px] font-normal leading-none text-tangerine">
-          {project.kicker}
-        </p>
+        <div className="flex flex-wrap items-center gap-2">
+          <MetaPill className="bg-strawberry/25 text-tangerine">{project.kicker}</MetaPill>
+          {project.year ? (
+            <MetaPill className="bg-blueberry/10 text-blueberry">{project.year}</MetaPill>
+          ) : null}
+          {project.status === "wip" ? (
+            <MetaPill className="bg-lime text-blueberry">WIP</MetaPill>
+          ) : null}
+        </div>
         <h3 className="mt-4 font-display text-[32px] font-normal leading-none text-blueberry md:text-[36px]">
           {project.title}
         </h3>

@@ -19,11 +19,15 @@ export const metadata: Metadata = {
 };
 
 export default function ProjectsPage() {
+  const projects = [...archiveProjects].sort(
+    (a, b) => Number.parseInt(b.year, 10) - Number.parseInt(a.year, 10),
+  );
+
   return (
     <main className="page-wrap py-10 text-left md:py-14">
       <h1 className="section-title text-tangerine">Projects</h1>
       <div className="mt-8 space-y-8">
-        {archiveProjects.map((project, index) => (
+        {projects.map((project, index) => (
           <FeaturedProjectCard
             key={project.title}
             project={project}

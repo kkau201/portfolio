@@ -22,11 +22,15 @@ export interface ProjectCta {
   href: string;
 }
 
+export type ProjectStatus = "wip";
+
 export interface FeaturedProject {
   kicker: string;
   title: string;
   img: string;
   imgAlt?: string;
+  year?: string;
+  status?: ProjectStatus;
   desc: string;
   tags: string[];
   href?: string;
@@ -40,6 +44,7 @@ export interface ArchiveProject {
   img: string;
   imgAlt?: string;
   year: string;
+  status?: ProjectStatus;
   desc: string;
   tags: string[];
   href?: string;
