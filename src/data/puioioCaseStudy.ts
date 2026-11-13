@@ -42,37 +42,52 @@ export const puioioCaseStudy = {
     },
   ],
   appIntro:
-    'As a mobile engineer, deploying a Python-based ML prototype into a consumer-ready application required solving several platform-specific challenges. The application, named Pūioio (te reo Māori for "strength"), was built using Flutter to ensure cross-platform availability on both the Google Play Store and Apple App Store from a single codebase.',
-  appSlides: [
+    'As a mobile engineer, deploying a Python-based ML prototype into a consumer-ready application required solving several platform-specific challenges. The application, named Pūioio, was built using Flutter to ensure cross-platform availability on both the Google Play Store and Apple App Store from a single codebase.',
+  appBento: [
     {
-      title: "Offline-First Architecture",
-      paragraphs: [
-        "The application was built to be entirely self-contained, executing all ML inference locally on the device without requiring an active internet connection. This architectural decision eliminated network latency, ensuring the UI could synchronize with the user's physical movements in true real-time.",
-      ],
+      title: "Offline first",
+      body: "The app is self-contained: BlazePose and the rest of the pipeline run on the phone, with no cloud round-trip. That removes network latency, so the counter can stay in time with the movement, in the gym or anywhere without a signal.",
+      tone: "lime" as const,
+      layout: "wide" as const,
+      column: "left" as const,
       image: {
         src: "/img/projects/puioio/quick-start.png",
         alt: "Pūioio Quick Start screen for choosing an exercise and rep count",
+        rotate: -7,
       },
     },
     {
-      title: "Real-time UI Overlays",
-      paragraphs: [
-        "I built a custom camera view capable of painting a 2D skeletal estimation over the live video feed at high frame rates without blocking the main UI thread.",
-        "Additionally, to help users maintain proper form, a custom phase tracker UI was aligned to the right side of the screen. This provides users with immediate visual feedback on their current exercise depth (Top, Ascending/Descending, Bottom) directly tied to the ML pipeline's state machine.",
-      ],
+      title: "The name",
+      body: "Inspired by a te reo Māori word.",
+      tone: "oatmeal" as const,
+      layout: "span5short" as const,
+      column: "right" as const,
+      specimens: [{ sample: "Pūioio", label: "(verb) to be strong, tough, hard, muscular." }],
+    },
+    {
+      title: "Live overlays",
+      body: "A custom camera view paints a 2D skeleton on the live feed without blocking the UI thread. A phase tracker on the right shows depth: top, moving, or bottom.",
+      tone: "tangerine" as const,
+      layout: "wide" as const,
+      column: "left" as const,
+      grow: true,
       image: {
         src: "/img/projects/puioio/overlay.jpg",
         alt: "Pūioio camera view overlaying a 2D skeleton and phase tracker during squats",
+        rotate: 0,
       },
     },
     {
-      title: "UX & Edge-Case Handling",
-      paragraphs: [
-        "I designed an intuitive onboarding flow, including an exercise carousel, rep counter, and a 10-second setup countdown. To handle real-world edge cases, like a user walking away or dropping their phone, I implemented logic that automatically pauses the workout and triggers a “We've lost you!” warning when pose confidence drops, resuming seamlessly once the user returns.",
-      ],
+      title: "Edge cases",
+      body: "Onboarding covers the exercise carousel, rep target, and a 10-second setup countdown. If pose confidence drops, the workout pauses with a 'We've lost you!' warning and resumes when the user is back in frame.",
+      tone: "blueberry" as const,
+      layout: "wide" as const,
+      column: "right" as const,
+      grow: true,
       image: {
         src: "/img/projects/puioio/app-screenshot.jpg",
         alt: "Pūioio workout screen showing a We've lost you warning during squats",
+        rotate: 6,
       },
     },
   ],

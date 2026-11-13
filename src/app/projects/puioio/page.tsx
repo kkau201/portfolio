@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AppSlides } from "@/components/case-study/AppSlides";
+import { CaseStudyBento } from "@/components/case-study/CaseStudyBento";
 import { CaseStudyBlocks } from "@/components/case-study/CaseStudyBlocks";
 import { CaseStudyHero } from "@/components/case-study/CaseStudyHero";
 import { CaseStudyLayout } from "@/components/case-study/CaseStudyLayout";
@@ -39,8 +39,8 @@ export default function PuioioCaseStudyPage() {
         <PipelineDiagram />
       </CaseStudySection>
 
-      <CaseStudySection index="03" title="Mobile Application Development" intro={study.appIntro} flushTop>
-        <AppSlides slides={study.appSlides} />
+      <CaseStudySection index="03" title="Mobile Application Development" intro={study.appIntro}>
+        <CaseStudyBento cards={study.appBento} />
       </CaseStudySection>
 
       <CaseStudySection index="04" title="Optimising the On-Device Pipeline" flushTop>
