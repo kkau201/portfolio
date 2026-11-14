@@ -17,6 +17,8 @@ export interface BentoCard {
     src: string;
     alt: string;
     rotate?: number;
+    fit?: "phone" | "card";
+    size?: "md" | "lg";
   };
 }
 
@@ -34,7 +36,7 @@ const layoutClass: Record<BentoCard["layout"], string> = {
   wide: "min-h-[28rem] md:col-span-2 lg:col-span-7",
   span3: "min-h-[18rem] lg:col-span-3",
   span4: "min-h-[24rem] lg:col-span-4",
-  span5: "min-h-[26rem] md:col-span-2 lg:col-span-5",
+  span5: "min-h-[28rem] md:col-span-2 lg:col-span-5",
   span5short: "self-start md:col-span-2 lg:col-span-5",
   span6: "min-h-[18rem] lg:col-span-6",
 };
@@ -115,7 +117,11 @@ function BentoArticle({
     >
       <div
         className={`relative z-[1] ${
-          card.image ? "max-w-[min(18rem,calc(100%-9rem))]" : "max-w-md"
+          card.image && card.image.fit !== "card"
+            ? card.image.size === "lg"
+              ? "max-w-[min(18rem,calc(100%-12rem))]"
+              : "max-w-[min(18rem,calc(100%-9rem))]"
+            : "max-w-md"
         }`}
       >
         <h3 className="font-display text-[28px] font-normal leading-none md:text-[32px]">
@@ -169,8 +175,32 @@ function BentoArticle({
           ))}
         </ul>
       ) : null}
-      {card.image ? (
-        <div className="pointer-events-none absolute bottom-5 right-5 w-[min(40%,12.5rem)] transition-transform duration-500 ease-out motion-safe:group-hover:-translate-y-1.5">
+      {card.image?.fit === "card" ? (
+        <div className="pointer-events-none relative z-[1] mt-6 w-[min(100%,22rem)] transition-transform duration-500 ease-out motion-safe:group-hover:-translate-y-1.5">
+          <div
+            className="overflow-hidden rounded-[20px] shadow-card ring-1 ring-blueberry/10"
+            style={{
+              transform: card.image.rotate
+                ? `rotate(${card.image.rotate}deg) scale(0.97)`
+                : undefined,
+            }}
+          >
+            <AssetImage
+              src={card.image.src}
+              alt={card.image.alt}
+              width={960}
+              height={720}
+              eager
+              className="h-auto w-full object-contain"
+            />
+          </div>
+        </div>
+      ) : card.image ? (
+        <div
+          className={`pointer-events-none absolute bottom-5 right-5 transition-transform duration-500 ease-out motion-safe:group-hover:-translate-y-1.5 ${
+            card.image.size === "lg" ? "w-[min(58%,17rem)]" : "w-[min(40%,12.5rem)]"
+          }`}
+        >
           <div
             className="w-full overflow-hidden rounded-[24px] shadow-card ring-1 ring-blueberry/10"
             style={{

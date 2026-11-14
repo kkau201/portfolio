@@ -95,6 +95,14 @@ body {
   object-fit: cover;
 }
 
+.project-card-media-contain {
+  background-color: #f7f4ef;
+}
+
+.project-card-media-contain img {
+  object-fit: contain;
+}
+
 .hero-badge-drag {
   pointer-events: auto;
   cursor: grab;

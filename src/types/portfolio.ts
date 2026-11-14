@@ -29,6 +29,7 @@ export interface FeaturedProject {
   title: string;
   img: string;
   imgAlt?: string;
+  imgFit?: "cover" | "contain";
   year?: string;
   status?: ProjectStatus;
   desc: string;
@@ -43,6 +44,7 @@ export interface ArchiveProject {
   title: string;
   img: string;
   imgAlt?: string;
+  imgFit?: "cover" | "contain";
   year: string;
   status?: ProjectStatus;
   desc: string;

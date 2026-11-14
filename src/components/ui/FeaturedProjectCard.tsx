@@ -36,15 +36,25 @@ export function FeaturedProjectCard({ project, href, priority = false }: Feature
 
   const inner = (
     <div className="grid gap-6 rounded-[23px] p-5 sm:p-6 md:grid-cols-2 md:items-stretch md:gap-8 md:p-7">
-      <div className="project-card-media h-[240px] overflow-hidden rounded-[18px] md:h-full md:min-h-[380px]">
+      <div
+        className={`project-card-media h-[240px] overflow-hidden rounded-[18px] md:h-full md:min-h-[380px] ${
+          project.imgFit === "contain" ? "project-card-media-contain" : ""
+        }`}
+      >
         <AssetImage
           src={project.img}
           alt={project.imgAlt ?? `${project.title} project preview`}
           fill
           priority={priority}
           sizes="(min-width: 760px) 50vw, 100vw"
-          className="h-full w-full max-w-none object-cover"
-          style={{ width: "100%", height: "100%", objectFit: "cover" }}
+          className={`h-full w-full max-w-none ${
+            project.imgFit === "contain" ? "object-contain" : "object-cover"
+          }`}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: project.imgFit === "contain" ? "contain" : "cover",
+          }}
         />
       </div>
       <div className="flex h-full flex-col items-start md:py-1">
