@@ -68,7 +68,7 @@ export const readingAppCaseStudy = {
         src: "/img/projects/reading-app/home.png",
         alt: "Reading App home library with a shelf of spines and Brave New World pulled forward",
         rotate: -7,
-        size: "lg",
+        size: "lg" as const,
       },
     },
     {
@@ -107,7 +107,7 @@ export const readingAppCaseStudy = {
       image: {
         src: "/img/projects/reading-app/stamp.png",
         alt: "Reading App yearly stamp card with three mascot stamps filled of eight",
-        fit: "card",
+        fit: "card" as const,
       },
     },
     {
