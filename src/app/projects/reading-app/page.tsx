@@ -42,7 +42,10 @@ export default function ReadingAppCaseStudyPage() {
         </div>
       </CaseStudySection>
 
-      <CaseStudySection index="03" title="Design & Implementation" intro={study.bentoIntro}>
+      <CaseStudySection
+        index="03"
+        title="Design & Implementation"
+      >
         <CaseStudyBento cards={study.bento} />
       </CaseStudySection>
 

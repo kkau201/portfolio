@@ -102,17 +102,16 @@ export const readingAppCaseStudy = {
       title: "Sessions",
       body: "Active reads sit in a horizontal carousel, with progress driven by your journal logs. Record a reading session by pages, current page, or percentage, or mark the book finished when you reach the end.",
       tone: "tangerine" as const,
-      layout: "span3" as const,
       column: "left" as const,
       layout: "wide" as const,
       image: {
         src: "/img/projects/reading-app/session.png",
         alt: "inkle sessions for Brave New World, 35 of 288 pages, with a journal entry",
         rotate: 0,
-        size: "sm",
-        align: "beside",
+        size: "sm" as const,
+        align: "beside" as const,
         fit: "panel" as const,
-        hoverable: false
+        hoverable: false,
       },
     },
     {
@@ -124,13 +123,13 @@ export const readingAppCaseStudy = {
       image: {
         src: "/img/projects/reading-app/search.png",
         alt: "inkle search results for Piranesi",
-        size: "sm",
-        align: "beside",
+        size: "sm" as const,
+        align: "beside" as const,
         fit: "panel" as const,
-        hoverable: false
+        hoverable: false,
       },
     },
-     {
+    {
       title: "Your shelf",
       body: "Your home screen works like a real bookcase. Filter by All, Want to read, Reading, or Finished. Active reads turn face-out to show their cover, while the rest stand upright by their spines.",
       tone: "lime" as const,
@@ -141,8 +140,8 @@ export const readingAppCaseStudy = {
         src: "/img/projects/reading-app/home-library.mp4",
         poster: "/img/projects/reading-app/home.png",
         alt: "inkle home library with a shelf of spines and Brave New World pulled forward",
-        size: "sm",
-        hoverable: false
+        size: "sm" as const,
+        hoverable: false,
       },
     },
     // {
