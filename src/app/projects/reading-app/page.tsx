@@ -9,13 +9,13 @@ import { ReadingArchitectureGraph } from "@/components/case-study/ReadingArchite
 import { readingAppCaseStudy as study } from "@/data/readingAppCaseStudy";
 
 export const metadata: Metadata = {
-  title: "Reading App | Kayla Kautai",
+  title: "inkle | Kayla Kautai",
   description: study.overview,
   alternates: {
     canonical: "/projects/reading-app",
   },
   openGraph: {
-    title: "Reading App | Kayla Kautai",
+    title: "inkle | Kayla Kautai",
     description: study.overview,
     url: "/projects/reading-app",
     type: "article",
@@ -42,11 +42,11 @@ export default function ReadingAppCaseStudyPage() {
         </div>
       </CaseStudySection>
 
-      <CaseStudySection index="03" title="Design" intro={study.bentoIntro}>
+      <CaseStudySection index="03" title="Design & Implementation" intro={study.bentoIntro}>
         <CaseStudyBento cards={study.bento} />
       </CaseStudySection>
 
-      <CaseStudySection index="04" title="Next" intro={study.nextIntro} invert>
+      <CaseStudySection index="04" title="Next steps" intro={study.nextIntro} invert>
         <OutlineBanner items={study.nextSteps} />
       </CaseStudySection>
     </CaseStudyLayout>

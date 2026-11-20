@@ -21,8 +21,8 @@ const bands = [
     label: "Data",
     rows: [
       [
-        { name: "FireRepository", hint: "Users · books · sessions" },
-        { name: "BookRepository", hint: "Google Books" },
+        { name: "FireRepository", hint: "Users · books · sessions · offline" },
+        { name: "BookRepository", hint: "Google Books · cached" },
       ],
     ],
   },
@@ -94,8 +94,9 @@ export function ReadingArchitectureGraph() {
         ))}
       </div>
       <figcaption className="mt-4 text-center text-sm leading-normal text-blueberry/75 lg:text-left">
-        Screens talk to repositories. Auth, the shelf, and sessions live in Firebase. Search hits
-        Google Books.
+        Screens talk to repositories. Auth, the shelf, and sessions live in Firebase, including
+        when the connection drops. Search hits Google Books, and books already opened stay in
+        the cache.
       </figcaption>
     </figure>
   );

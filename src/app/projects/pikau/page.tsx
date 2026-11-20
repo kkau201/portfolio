@@ -42,7 +42,7 @@ export default function PikauCaseStudyPage() {
         </div>
       </CaseStudySection>
 
-      <CaseStudySection index="03" title="Design" intro={study.bentoIntro}>
+      <CaseStudySection index="03" title="Design & Implementation" intro={study.bentoIntro}>
         <CaseStudyBento cards={study.bento} />
       </CaseStudySection>
 
@@ -50,7 +50,7 @@ export default function PikauCaseStudyPage() {
         <CaseStudyBlocks blocks={study.quality} />
       </CaseStudySection>
 
-      <CaseStudySection index="05" title="Next" intro={study.nextIntro} invert>
+      <CaseStudySection index="05" title="Next steps" intro={study.nextIntro} invert>
         <OutlineBanner items={study.nextSteps} />
       </CaseStudySection>
     </CaseStudyLayout>

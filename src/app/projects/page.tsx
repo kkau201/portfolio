@@ -5,14 +5,14 @@ import { FeaturedProjectCard } from "@/components/ui/FeaturedProjectCard";
 export const metadata: Metadata = {
   title: "Projects | Kayla Kautai",
   description:
-    "Selected Android, mobile, and design projects by Kayla Kautai, including Pūioio, Pīkau, and Reading App.",
+    "Selected Android, mobile, and design projects by Kayla Kautai, including Pūioio, Pīkau, and inkle.",
   alternates: {
     canonical: "/projects",
   },
   openGraph: {
     title: "Projects | Kayla Kautai",
     description:
-      "Selected Android, mobile, and design projects by Kayla Kautai, including Pūioio, Pīkau, and Reading App.",
+      "Selected Android, mobile, and design projects by Kayla Kautai, including Pūioio, Pīkau, and inkle.",
     url: "/projects",
     type: "website",
   },

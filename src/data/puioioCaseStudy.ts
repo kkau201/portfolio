@@ -111,7 +111,7 @@ export const puioioCaseStudy = {
     { value: "100%", caption: "Off-by-one accuracy\nfor squats and push-ups" },
   ],
   next: {
-    label: "NEXT PROJECT: Reading App",
+    label: "NEXT PROJECT: inkle",
     href: "/projects/reading-app",
   },
 };

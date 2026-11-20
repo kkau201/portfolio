@@ -32,8 +32,13 @@ export const pikauCaseStudy = {
       tone: "lime" as const,
       layout: "span6" as const,
       specimens: [
-        { sample: "Pīkau", label: "Afacad Flux / headline" },
-        { sample: "Pack light. Walk far.", label: "Afacad Flux / body", size: "body" as const },
+        { sample: "Pīkau", label: "Afacad Flux / headline", face: "afacad" as const },
+        {
+          sample: "Pack light. Walk far.",
+          label: "Afacad Flux / body",
+          size: "body" as const,
+          face: "afacad" as const,
+        },
       ],
     },
     {
