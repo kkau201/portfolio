@@ -4,16 +4,16 @@ export const readingAppCaseStudy = {
   repoHref: "https://github.com/kkau201/ReadingApp",
   repoLabel: "VIEW GITHUB",
   overview:
-    "inkle is a native Android reading companion. Home is a shelf of spines. Search comes from Google Books. A session is one sitting with the book you are reading, and each book you finish stamps a card for the year. Sign-in is email or Google. The shelf, profile, and journal live in Firestore.",
+    "inkle is a native Android reading companion built around a tactile shelf of spines. Search is powered by Google Books, reading progress is logged one sitting at a time, and every finished book earns a stamp toward your annual goal. Accounts use email or Google sign-in, with shelves, profiles, and journal entries synced in Firestore.",
   facts: {
     timeline: "2024 - Present",
     role: "Creator & Android Engineer",
     stack: ["Kotlin", "Jetpack Compose", "Hilt", "Firebase", "Retrofit"],
   },
   challenge:
-    "I wanted a shelf that feels like a bookcase, and a record of the reading itself: how far through a book I am, what I noted after a sitting, and a stamp for each book finished this year. That meant Compose UI, Firebase Auth and Firestore, and the Google Books API. It also meant the shelf still opening from the copy on the device when the phone is offline.",
+    "I originally started inkle in 2024 to learn Firebase Auth, Firestore, and REST APIs. Picking it back up now, I redesigned the app to feel like a real bookcase alongside a quiet record of the reading itself: how far through a book I am, what I noted after a sitting, and a stamp for each book finished this year. Local caching keeps the shelf available when the phone is offline, while leaving room to grow into custom book entry and smarter reading recaps.",
   architectureIntro:
-    "The dashboard is the shell. Screens talk to repositories. Auth, the shelf, and sessions live in Firebase. Search goes out to Google Books, and both stores keep a cache for when the connection drops.",
+    "The dashboard acts as the navigation shell, with screens reading from unified repositories. Auth, shelf data, and sessions live in Firestore, search queries Google Books, and both data sources cache locally so the app stays usable offline.",
   architecture: [
     {
       title: "Dashboard and destinations",
@@ -21,15 +21,15 @@ export const readingAppCaseStudy = {
     },
     {
       title: "Firebase for the account and the shelf",
-      body: "Email and Google sign-in use Firebase Auth, with password reset and an email verification reminder. Users, saved books, and sessions are Firestore collections for the signed-in user. A write is stored on the device first and syncs when the connection returns. Delete account removes the Firebase user and the books and sessions stored against them.",
+      body: "Email and Google sign-in run through Firebase Auth, complete with password resets and email verification prompts. User profiles, saved books, and reading sessions live in per-user Firestore collections—writes persist locally first and sync automatically once reconnected. Account deletion cleanly purges both the Auth user and all associated Firestore records.",
     },
     {
       title: "Google Books, with a cache",
-      body: "Search and book detail come from the Books API through Retrofit. The key is restricted to this package, and each request sends the package name and signing certificate. Responses are cached, so a book already opened still shows its cover and description offline. If that call fails, detail falls back to the copy saved on the shelf.",
+      body: "Search and book details are fetched from the Google Books API via Retrofit, using an API key restricted to the app's package name and signing certificate. Responses are cached so previously opened books still display covers and descriptions offline, falling back to the saved shelf copy if a network request fails.",
     },
     {
-      title: "A shelf, a journal, a stamp card",
-      body: "Home draws spines, with the book in progress pulled forward. Sessions is a carousel of books marked reading, a progress line from the journal, and a place to log a sitting or mark the book finished. The profile holds a green stamp card for the year. It flips over to change the goal and an optional reward.",
+      title: "Reactive UI state",
+      body: "Changes in Firestore flow straight into the UI—updating a session recalculates shelf progress bars in real time, and marking a book finished automatically stamps Blot onto the profile card.",
     },
   ],
   bento: [
@@ -169,19 +169,19 @@ export const readingAppCaseStudy = {
     // },
   ],
   nextIntro:
-    "The  next three bigger features I plan to work towards:",
+    "The next three features on my roadmap:",
   nextSteps: [
     {
       title: "Manually add books",
-      body: "Allow user to add their own books, especially if they are unable to find it via the Google Books API. An add-on would be to use Google ML Kit to scan a book cover or barcode."
+      body: "Let readers add their own books when a title is missing from Google Books, with the option to scan a cover or barcode using Google ML Kit.",
     },
     {
       title: "Progress-Aware Recaps",
-      body: "Surface a subtle \"Catch me up to page X\" prompt on the Sessions screen when a currently reading book hasn't been logged in a while. Use an AI prompt with strict page and percentage cutoff constraints to generate a short summary."
+      body: "Surface a subtle \"Catch me up to page X\" prompt on the Sessions screen when a book has been sitting unread for a while. Strict page and percentage cutoffs keep the short AI summary completely spoiler-free.",
     },
     {
       title: "Monthly/yearly reading recaps",
-      body: "Aggregate reading stats, finished books, and session notes locally to generate swipeable, shareable editorial recap cards. Use structured AI output to synthesize reading moods, highlight notes, and summarize progress toward the annual stamp card goal and reward."
+      body: "Combine local reading stats, finished books, and session notes into swipeable, shareable recap cards. Structured AI output highlights margin notes, captures reading moods, and tracks progress toward the annual stamp card reward.",
     },
   ],
   next: {
