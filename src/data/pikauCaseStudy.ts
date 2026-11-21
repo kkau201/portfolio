@@ -1,10 +1,12 @@
+import { title } from "process"
+
 export const pikauCaseStudy = {
   title: "Pīkau",
   subtitle: "Personal Project | Native Android",
   repoHref: "https://github.com/kkau201/pikau-android",
   repoLabel: "VIEW GITHUB",
   overview:
-    "Pīkau is a native Android app for planning tramping trips and managing gear. The name is te reo Māori for a pack carried on the back.\n\nI am building it as a production-shaped codebase: modular Gradle, Jetpack Compose, Hilt, Room, and Navigation 3. Home, Gear, Trips, and Me are in the app. Trip and gear detail, create flows, and the remaining Me destinations are still to build.",
+    "Pīkau is a native Android app for planning tramping trips and managing gear. The name is te reo Māori for a pack carried on the back.\n\nI am building it as a production-shaped codebase: modular Gradle, Jetpack Compose, Hilt, Room, and Navigation 3. The foundations for the four main destinations (Home, Gear, Trips, and Me) have been built, with detail screens, creation flows, and settings sub-screens next in line.",
   facts: {
     timeline: "2026 – Present",
     role: "Creator & Android Engineer",
@@ -17,7 +19,7 @@ export const pikauCaseStudy = {
   bento: [
     {
       title: "Colour",
-      body: "A fixed Compose palette (forest, olive, light green). Dynamic colour is disabled so brand stays consistent in light and dark.",
+      body: "A fixed Compose palette of forest green, olive, and light sage. Dynamic Material colour is disabled so the outdoor brand palette stays consistent across light and dark mode.",
       tone: "oatmeal" as const,
       layout: "span6" as const,
       swatches: [
@@ -28,7 +30,7 @@ export const pikauCaseStudy = {
     },
     {
       title: "Type",
-      body: "Afacad Flux for headlines and body. Compact labels use the platform default typeface.",
+      body: "Afacad Flux sets both headlines and body copy, paired with the platform default typeface for compact labels.",
       tone: "lime" as const,
       layout: "span6" as const,
       specimens: [
@@ -42,66 +44,50 @@ export const pikauCaseStudy = {
       ],
     },
     {
-      title: "Gear library",
-      body: "Search and filter equipment by category. Each item stores weight in grams so a trip pack can be totalled from the library.",
-      tone: "lime" as const,
+      title: "Home",
+      body: "Surfaces your next upcoming trip front and centre, paired with a quick to-do checklist for final packing tasks before you head out.",
+      tone: "tangerine" as const,
       layout: "tall" as const,
       image: {
-        src: "/img/projects/pikau/gear-list.png",
-        alt: "Pīkau gear library with search, chips, and weighted items",
-        rotate: -7,
-      },
-    },
-    {
-      title: "Trips",
-      body: "Upcoming and past trips, split by start date. Open a trip for overview, packing, food, and notes.",
-      tone: "tangerine" as const,
-      layout: "wide" as const,
-      image: {
-        src: "/img/projects/pikau/trips-list.png",
-        alt: "Pīkau trips tab with upcoming walks",
-        rotate: 0,
-      },
-    },
-    {
-      title: "Me",
-      body: "Profile, trips completed, distance, and average pack weight, plus settings, notifications, emergency contact, and support.",
-      tone: "guava" as const,
-      layout: "span4" as const,
-      image: {
-        src: "/img/projects/pikau/me.png",
-        alt: "Pīkau Me tab with stats and settings",
-        rotate: 6,
-      },
-    },
-    {
-      title: "Offline first",
-      body: "Trips, gear, packing lists, food, and notes live on the device so the companion still works without a signal.",
-      tone: "blueberry" as const,
-      layout: "span3" as const,
-      chips: ["Trips", "Gear", "Packing", "Food", "Notes"],
-    },
-    {
-      title: "Home",
-      body: "The next trip up front, with a short to-do list for what still needs packing or checking before you leave.",
-      tone: "strawberry" as const,
-      layout: "wide" as const,
-      image: {
         src: "/img/projects/pikau/home.png",
-        alt: "Pīkau home tab design with an upcoming trip",
-        rotate: 0,
+        alt: "Upcoming trip and a short checklist before leaving",
+        fit: "panel" as const,
+        size: "full" as const,
+        hoverable: false,
+      },
+    },
+    {
+      title: "Gear library",
+      body: "Search and filter equipment by category. Each item stores its weight in grams so a trip pack can be totalled straight from your library.",
+      tone: "guava" as const,
+      layout: "wide" as const,
+      image: {
+        src: "/img/projects/pikau/gear-panel.png",
+        alt: "Gear library with search, category chips, and item weights",
+        fit: "panel" as const,
+        size: "full" as const,
+        hoverable: false,
       },
     },
     {
       title: "Trip detail",
-      body: "Location, dates, difficulty, packing progress, food, notes, and a forecast in one place for the walk ahead.",
+      body: "Brings location, dates, difficulty, packing progress, food, trail notes, and a local weather forecast together in one screen for the walk ahead.",
       tone: "oatmeal" as const,
-      layout: "span5" as const,
-      image: {
-        src: "/img/projects/pikau/trip-detail.png",
-        alt: "Pīkau trip detail design with map and weather",
-        rotate: 7,
+      layout: "span4" as const,
+      video: {
+        src: "/img/projects/pikau/trip-detail.mp4",
+        poster: "/img/projects/pikau/trip-detail-poster.png",
+        alt: "Trip detail with dates, a three-day forecast, and packing progress filling to 12 of 20",
+        size: "full" as const,
+        hoverable: false,
       },
+    },
+    {
+      title: "Offline first",
+      body: "Trips, gear, packing lists, food, and notes are stored locally on the device so the companion works reliably without a mobile signal.",
+      tone: "blueberry" as const,
+      layout: "span3" as const,
+      chips: ["Trips", "Gear", "Packing", "Food", "Notes"],
     },
   ],
   architectureIntro:
@@ -117,7 +103,7 @@ export const pikauCaseStudy = {
     },
     {
       title: "Navigation 3",
-      body: "Four tabs sit in a pager, and each tab keeps its own history. Tapping a trip or a gear item is meant to open a full screen and hide the tab bar. That screen is designed, not built yet.",
+      body: "Four tabs sit in a pager, and each tab preserves its own back stack. Tapping a trip or gear item is wired to hide the bottom bar and push a full-screen detail route, ready for the detail destinations currently in design.",
     },
     {
       title: "Shared Compose UI",
@@ -125,7 +111,7 @@ export const pikauCaseStudy = {
     },
   ],
   qualityIntro:
-    "The current value of the project is a maintainable Android structure with coverage on the layers that already exist, not a finished packing product.",
+    "Rather than rushing out screens, I prioritized a maintainable Android architecture with solid test coverage across the core layers already in place.",
   quality: [
     {
       title: "Tests on the logic",
@@ -141,19 +127,19 @@ export const pikauCaseStudy = {
     },
   ],
   nextIntro:
-    "You can already browse Home, Gear, Trips, and Me. The next screens are the ones that open from those lists.",
+    "With the four core browse tabs and local database schema in place, the next milestones focus on detail views and data entry:",
   nextSteps: [
     {
       title: "Trip and gear detail",
-      body: "Tapping a trip or a gear item hides the tab bar, but the screen that should open is not built yet. For a trip, that screen is the overview, packing list, food, and notes.",
+      body: "Build out the full-screen detail destinations triggered from the Trips and Gear lists, bringing together trip overviews, packing checklists, food plans, and trail notes.",
     },
     {
       title: "Adding a trip or gear item",
-      body: "Lists work. There is not yet a form to create a trip or a piece of gear. Those forms will use the fields already stored on the device.",
+      body: "Connect creation and editing forms directly to the existing Room schema so users can add new trips, log gear weights, and build packing lists on device.",
     },
     {
       title: "Profile settings",
-      body: "The Me tab already shows settings, notifications, emergency contact, privacy, and support. Tapping those rows does not open a screen yet.",
+      body: "Implement the sub-screens under the Me tab for notification preferences, emergency contact details, privacy controls, and app support.",
     },
   ],
   next: {

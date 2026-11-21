@@ -91,7 +91,7 @@ const toneClass: Record<BentoCard["tone"], string> = {
   lime: "bg-lime text-blueberry",
   tangerine: "bg-tangerine text-oatmeal",
   blueberry: "bg-blueberry text-oatmeal",
-  guava: "bg-guava text-blueberry",
+  guava: "bg-guava text-oatmeal",
   strawberry: "bg-strawberry text-oatmeal",
   oatmeal: "bg-oatmeal text-blueberry ring-1 ring-blueberry/10",
 };
@@ -286,7 +286,7 @@ function BentoArticle({
     <motion.article
       className={`group relative overflow-hidden rounded-[28px] p-7 md:p-8 ${toneClass[card.tone]} ${
         stacked ? `${stackedLayoutClass[card.layout]} w-full` : layoutClass[card.layout]
-      } ${card.grow ? "lg:flex-1" : ""} ${
+      } ${card.layout === "tall" ? "flex h-full flex-col" : ""} ${card.grow ? "lg:flex-1" : ""} ${
         stacked ? ["max-lg:order-1", "max-lg:order-2", "max-lg:order-3", "max-lg:order-4"][index] : ""
       }`}
       initial={reduceMotion ? false : { opacity: 0, y: 14 }}
@@ -318,7 +318,7 @@ function BentoArticle({
         <>
           {copy}
           {extras}
-          {media}
+          {card.layout === "tall" ? <div className="mt-auto">{media}</div> : media}
         </>
       )}
     </motion.article>
